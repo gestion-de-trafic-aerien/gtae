@@ -6,10 +6,6 @@ package data;
 import dataEnum.FlightStatus;
 import dataEnum.PlaneID;
 
-/**
- * @author nadir
- *
- */
 public class Plane {
 	
 	private  PlaneID planeID;

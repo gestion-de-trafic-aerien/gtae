@@ -1,15 +1,10 @@
-/**
- * 
- */
 package data;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
-/**
- * @author nadir
- *
- */
+
+
 public class Trajectory {
 	
 	private ArrayList<Point2D> points; 

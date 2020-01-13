@@ -5,10 +5,6 @@ package data;
 
 import java.util.Date;
 
-/**
- * @author nadir
- *
- */
 public class Flight {
 	
 	private Trajectory trajectory;
