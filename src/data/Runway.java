@@ -7,10 +7,7 @@ package data;
 import dataEnum.RunwayID;
 import dataEnum.Status;
 
-/**
- * @author nadir
- *
- */
+
 public class Runway {
 	
 	private  RunwayID runwayID;
