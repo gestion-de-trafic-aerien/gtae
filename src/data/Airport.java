@@ -6,6 +6,8 @@ package data;
 import java.util.ArrayList;
 import data.Runway;
 import dataEnum.AirportID;
+import dataEnum.RunwayID;
+import dataEnum.Status;
 
 
 public class Airport {
@@ -38,6 +40,16 @@ public class Airport {
 	@Override
 	public String toString() {
 		return "Airport [airportID=" + airportID + ", runways=" + runways + "]";
+	}
+
+	public RunwayID freeRunway() {
+		for(Runway runway1 : runways) {
+			Status status= runway1.getStatus();
+			if(status.equals(Status.FREE)){
+				return runway1.getRunwayID();
+			}
+		}
+		return null;
 	}
 	
 	

@@ -10,53 +10,65 @@ public class Flight {
 	private Trajectory trajectory;
 	private String flightID;
 	private Date departureDate;
-	private Date arrivalDate;
+	private Airport source;
+	private Airport destination;
 	
 	/*
 	 * Constructors
 	 */
-	
-	public Flight() {}
-	
-	public Flight (Trajectory trajectory, String flightID, Date departureDate, Date arrivalDate) {
+	public Flight(Trajectory trajectory, String flightID, Date departureDate, Airport source, Airport destination) {
+		super();
 		this.trajectory = trajectory;
 		this.flightID = flightID;
 		this.departureDate = departureDate;
-		this.arrivalDate = arrivalDate;
+		this.source = source;
+		this.destination = destination;
 	}
-	
-	public void setTrajectory (Trajectory trajectory) {
+
+	public Trajectory getTrajectory() {
+		return trajectory;
+	}
+
+	public void setTrajectory(Trajectory trajectory) {
 		this.trajectory = trajectory;
 	}
-	
-	public void setFlightID (String flightID) {
-		this.flightID = flightID;
+
+	public Date getDepartureDate() {
+		return departureDate;
+	}
+
+	public void setDepartureDate(Date departureDate) {
+		this.departureDate=departureDate;
+	}
+
+	public Airport getSource() {
+		return source;
+	}
+
+	public void setSource(Airport source) {
+		this.source = source;
+	}
+
+	public Airport getDestination() {
+		return destination;
+	}
+
+	public void setDestination(Airport destination) {
+		this.destination = destination;
+	}
+
+	public String getFlightID() {
+		return flightID;
+	}
+
+	@Override
+	public String toString() {
+		return "Flight [trajectory=" + trajectory + ", flightID=" + flightID + ", departureDate=" + departureDate
+				+ ", source=" + source + ", destination=" + destination + "]";
 	}
 	
-	public void setDepature (Date departureDate) {
-		this.departureDate = departureDate;
-	}
 	
-	public void setArrival (Date arrivalDate) {
-		this.arrivalDate = arrivalDate;
-	}
-	
-	
-	public Trajectory getTrajectory () {
-		return this.trajectory;
-	}
-	
-	public String getFlightID () {
-		return this.flightID;
-	}
-	
-	public Date getDeparture () {
-		return this.departureDate;
-	}
-	
-	public Date getArrival () {
-		return this.arrivalDate;
-	}
+
 	
 }
 

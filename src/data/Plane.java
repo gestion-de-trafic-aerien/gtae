@@ -13,8 +13,8 @@ public class Plane {
 	private  FlightStatus statuts;
 	private  int fuel;
 	private  int fuelConsumption;
-	private  String flight;
-	public Plane(PlaneID planeID, double speed, FlightStatus statuts, int fuel, int fuelConsumption, String flight) {
+	private  Flight flight;
+	public Plane(PlaneID planeID, double speed, FlightStatus statuts, int fuel, int fuelConsumption, Flight flight) {
 		super();
 		this.planeID = planeID;
 		this.speed = speed;
@@ -41,10 +41,10 @@ public class Plane {
 	public void setFuel(int fuel) {
 		this.fuel = fuel;
 	}
-	public String getFlight() {
+	public Flight getFlight() {
 		return flight;
 	}
-	public void setFlight(String flight) {
+	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
 	public PlaneID getPlaneID() {
