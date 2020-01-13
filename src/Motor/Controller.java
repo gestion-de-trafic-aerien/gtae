@@ -31,7 +31,7 @@ public class Controller {
 	}
 	public Trajectory respondTrajectory(Trajectory trajectory) {
 		int altitude=trajectory.getAltitude();
-		trajectory.setAltitude(altitude-500);
+		trajectory.setAltitude(altitude-400);
 		return trajectory;
 	}
 	
