@@ -12,12 +12,12 @@ import java.util.ArrayList;
  */
 public class Trajectory {
 	
-	private static ArrayList<Point2D> points; 
-	private static int altitude;
+	private ArrayList<Point2D> points; 
+	private int altitude;
 	
-	public void Trajectory() {}
+	public Trajectory() {}
 	
-	public void Trajectory (ArrayList<Point2D> points, int altitude ) {
+	public Trajectory (ArrayList<Point2D> points, int altitude ) {
 		this.points = points;
 		this.altitude = altitude;
 	}

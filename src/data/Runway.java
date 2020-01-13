@@ -3,39 +3,44 @@
  */
 package data;
 
+
+import dataEnum.RunwayID;
+import dataEnum.Status;
+
 /**
  * @author nadir
  *
  */
 public class Runway {
 	
-	private static RunwayID runwayID;
-	private static Status status;
+	private  RunwayID runwayID;
+	private  Status status;
 	
-	/*
-	 * Constructeur
-	 */
-	
-	public void Runway() {}
-	
-	public void Runway (RunwayID runwayID, Status status) {
+	public Runway(RunwayID runwayID, Status status) {
+		super();
 		this.runwayID = runwayID;
 		this.status = status;
 	}
 	
-	public void setRunwayID (RunwayID runwayID) {
-		this.runwayID = runwayID;
-	}
 	
-	public void setStatus (Status status) {
+	public Status getStatus() {
+		return status;
+	}
+	public void setStatus(Status status) {
 		this.status = status;
+	}
+	public RunwayID getRunwayID() {
+		return runwayID;
 	}
 
-	public RunwayID getRunwayID () {
-		return this.runwayID;
+
+	@Override
+	public String toString() {
+		return "Runway [runwayID=" + runwayID + ", status=" + status + "]";
 	}
 	
-	public Status getStatus () {
-		return this.status;
-	}
+	
+	
+	
+	
 }

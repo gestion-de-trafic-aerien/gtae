@@ -1,7 +1,10 @@
-/**
+/*
  * 
  */
 package data;
+
+import dataEnum.FlightStatus;
+import dataEnum.PlaneID;
 
 /**
  * @author nadir
@@ -9,67 +12,66 @@ package data;
  */
 public class Plane {
 	
-	private static PlaneID planeID;
-	private static double speed;
-	private static FlightStatus statuts;
-	private static int fuel;
-	private static FlightID flightID;
-	
-	/*
-	 * Empty constructor
-	 */
-	
-	public void Plane () {}
-	
-	/*
-	 * Constructor
-	 */	
-	
-	public void Plane (PlaneID planeID, double speed, FlightStatus statuts, int fuel, FlightID flightID) {
+	private  PlaneID planeID;
+	private  double speed;
+	private  FlightStatus statuts;
+	private  int fuel;
+	private  int fuelConsumption;
+	private  String flight;
+	public Plane(PlaneID planeID, double speed, FlightStatus statuts, int fuel, int fuelConsumption, String flight) {
+		super();
 		this.planeID = planeID;
 		this.speed = speed;
 		this.statuts = statuts;
 		this.fuel = fuel;
-		this.flightID = flightID
+		this.fuelConsumption = fuelConsumption;
+		this.flight = flight;
 	}
-	
-	public void setPlaneID (PlaneID planeID) {
-		this.planeID = planeID;
+	public double getSpeed() {
+		return speed;
 	}
-	
-	public void setSpeed (double speed) {
+	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
-	
-	public void setStatuts (FlightStatus statuts) {
+	public FlightStatus getStatuts() {
+		return statuts;
+	}
+	public void setStatuts(FlightStatus statuts) {
 		this.statuts = statuts;
 	}
-	
-	public void setFuel (int fuel) {
+	public int getFuel() {
+		return fuel;
+	}
+	public void setFuel(int fuel) {
 		this.fuel = fuel;
 	}
-	
-	public void setFlightID (FlightID flightID) {
-		this.flightID = flightID;
+	public String getFlight() {
+		return flight;
+	}
+	public void setFlight(String flight) {
+		this.flight = flight;
+	}
+	public PlaneID getPlaneID() {
+		return planeID;
+	}
+	public int getFuelConsumption() {
+		return fuelConsumption;
 	}
 	
-	public PlaneID getPlaneID () {
-		return this.planeID;
+	@Override
+	public String toString() {
+		return "Plane [planeID=" + planeID + ", speed=" + speed + ", statuts=" + statuts + ", fuel=" + fuel
+				+ ", fuelConsumption=" + fuelConsumption + ", flight=" + flight + "]";
 	}
 	
-	public double getSpeed () {
-		return this.speed;
-	}
 	
-	public FlightStatus getStatuts () {
-		return this.statuts;
-	}
 	
-	public int getFuel () {
-		return this.fuel;
-	}
 	
-	public FlightID getFLightID () {
-		return this.flightID;
-	}
+	
+	
+	
+	
+	
+	
+	
 }
