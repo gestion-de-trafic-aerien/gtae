@@ -2,12 +2,14 @@ package Motor;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import data.Airport;
+import data.Flight;
 import data.GlobaleData;
 import data.Plane;
+import data.Trajectory;
 import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
+import Motor.Controller;
 
 public class Simulator implements Runnable {
 	
@@ -44,6 +46,13 @@ public class Simulator implements Runnable {
 		else {
 			plane.setStatuts(FlightStatus.WAITING_FOR_LANDING);
 		}
+	}
+	
+	public void requestTrajectory(Plane plane) {
+		Flight flight = plane.getFlight();
+		Trajectory initialTrajectory = flight.getTrajectory();
+		Trajectory newTrajectory = controller.respondTrajectory(initialTrajectory);
+		flight.setTrajectory(newTrajectory);		
 	}
 
 	@Override
