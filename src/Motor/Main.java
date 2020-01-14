@@ -29,17 +29,14 @@ public class Main {
 		points.add(new Position(500, 450));
 		points.add(new Position(500, 500));
 		points.add(new Position(500, 550));
-
-		
-
 		ArrayList<Airport> airports= new ArrayList<Airport>();
 		ArrayList<Plane> waitingPlanes = new ArrayList<Plane>();
 		@SuppressWarnings("deprecation")
 		Date date = new Date(2020, 01, 14, 11, 30);
 		Plane plane1 = new Plane(PlaneID.P00001,new Position(500, 400), 100, FlightStatus.WAITING_FOR_TAKING_OFF, 1000, 10, new Flight(new Trajectory(points, 1000),"001",date, alg, paris));
 		waitingPlanes.add(plane1);
-		 Controller controller=new Controller();
-		 GlobaleData data= new GlobaleData(waitingPlanes, airports);
+		Controller controller=new Controller();
+		GlobaleData data= new GlobaleData(waitingPlanes, airports);
 		Simulator simulator= new Simulator(data, controller);
 		System.out.println(plane1.toString());
 		simulator.requestTakeOFF(plane1);

@@ -1,5 +1,7 @@
 package Motor;
 
+import java.util.Random;
+
 import data.Airport;
 import data.Plane;
 import dataEnum.FlightStatus;
@@ -32,7 +34,20 @@ public class TakeOFF implements Runnable {
 		}
 		else {
 			plane.setStatuts(FlightStatus.WAITING_FOR_LANDING);
-			System.out.println("taking-off is delayed");
+			
+			Random random = new Random();
+			int retard;
+			retard = random.nextInt(9);
+			
+			System.out.println("taking-off is delayed for "+retard+" minutes");
+			
+			try {
+				
+				Thread.sleep(10000*retard);
+				Thread.currentThread().run();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

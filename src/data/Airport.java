@@ -15,7 +15,7 @@ public class Airport {
 	private  AirportID airportID;
 	private  ArrayList  <Runway> runways;
 		
-	public Airport(AirportID airportID, ArrayList<Runway> runways, Position airportPosition) {
+	public Airport(AirportID airportID, ArrayList<Runway> runways) {
 		super();
 		this.airportID = airportID;
 		this.runways = runways;
@@ -36,6 +36,9 @@ public class Airport {
 
 	public AirportID getAirportID() {
 		return airportID;
+	}
+	public Position getAirportPosition() {
+		return airportID.getAirportPosition();
 	}
 	
 
