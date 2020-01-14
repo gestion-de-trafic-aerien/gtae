@@ -1,6 +1,8 @@
 package Motor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import data.Airport;
 import data.Flight;
 import data.GlobaleData;
@@ -13,12 +15,14 @@ import Motor.Controller;
 public class Simulator {
 	
 	private GlobaleData data;
+	private List<Plane> waitingPlanes;
 	Controller controller;
 	
 	public Simulator(GlobaleData data, Controller controller) {
 		super();
 		this.data = data;
 		this.controller=controller;
+		waitingPlanes= new ArrayList<>();
 	}
 	
 	public void requestTakeOFF(Plane plane) {
@@ -28,10 +32,7 @@ public class Simulator {
 			plane.setStatuts(FlightStatus.NORMAL);
 		}
 		else {
-			Date firstdate=plane.getFlight().getDepartureDate();
-			Date newDate;
-			newDate= calculNewDate(firstdate);
-			plane.getFlight().setDepartureDate(newDate);
+			waitingPlanes.add(plane);
 		}
 	}
 	
@@ -54,10 +55,6 @@ public class Simulator {
 		flight.setTrajectory(newTrajectory);		
 	}
 
-	private Date calculNewDate(Date date) {
-		// to do fonction qui retourne une nouvelle date randomly
-		return date;
-	}
 
 	
 }

@@ -3,26 +3,34 @@
  */
 package data;
 
+import java.awt.geom.Point2D;
+
 import dataEnum.FlightStatus;
 import dataEnum.PlaneID;
 
 public class Plane {
 	
 	private  PlaneID planeID;
+	private  Point2D positionPoint2d;
 	private  double speed;
 	private  FlightStatus statuts;
 	private  int fuel;
 	private  int fuelConsumption;
 	private  Flight flight;
-	public Plane(PlaneID planeID, double speed, FlightStatus statuts, int fuel, int fuelConsumption, Flight flight) {
+	
+	public Plane(PlaneID planeID, Point2D positionPoint2d, double speed, FlightStatus statuts, int fuel,
+			int fuelConsumption, Flight flight) {
 		super();
 		this.planeID = planeID;
+		this.positionPoint2d = positionPoint2d;
 		this.speed = speed;
 		this.statuts = statuts;
 		this.fuel = fuel;
 		this.fuelConsumption = fuelConsumption;
 		this.flight = flight;
 	}
+
+	
 	public double getSpeed() {
 		return speed;
 	}
@@ -53,12 +61,19 @@ public class Plane {
 	public int getFuelConsumption() {
 		return fuelConsumption;
 	}
+	public Point2D getPositionPoint2d() {
+		return positionPoint2d;
+	}
+	public void setPositionPoint2d(Point2D positionPoint2d) {
+		this.positionPoint2d = positionPoint2d;
+	}
 	
 	@Override
 	public String toString() {
 		return "Plane [planeID=" + planeID + ", speed=" + speed + ", statuts=" + statuts + ", fuel=" + fuel
 				+ ", fuelConsumption=" + fuelConsumption + ", flight=" + flight + "]";
 	}
+	
 	
 	
 	
