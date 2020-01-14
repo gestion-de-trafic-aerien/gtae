@@ -6,14 +6,14 @@ public class Trajectory {
 	
 	private ArrayList<Position> points; 
 	private int altitude;
+	private Airport source;
+	private Airport destination;
 	
-	public Trajectory() {}
-	
-	public Trajectory (ArrayList<Position> points, int altitude ) {
-		this.points = points;
-		this.altitude = altitude;
+	public Trajectory(Airport source, Airport destination) {
+		this.source = source;
+		this.destination = destination;
 	}
-	
+		
 	public void setPoints (ArrayList<Position> points) {
 		this.points = points;
 	}
@@ -57,6 +57,12 @@ public class Trajectory {
 		System.out.println("The left distance of the flight ID:" + flight.getFlightID() + "is" + leftDistance + "Km");
 		return leftDistance;
 		
+	}
+	
+
+	public ArrayList<Position> calculTrajectory() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
