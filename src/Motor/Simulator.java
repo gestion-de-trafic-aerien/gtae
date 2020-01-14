@@ -1,12 +1,14 @@
 package Motor;
 
 import java.util.Date;
-
 import data.Airport;
+import data.Flight;
 import data.GlobaleData;
 import data.Plane;
+import data.Trajectory;
 import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
+import Motor.Controller;
 
 public class Simulator {
 	
@@ -42,6 +44,14 @@ public class Simulator {
 		else {
 			plane.setStatuts(FlightStatus.WAITING_FOR_LANDING);
 		}
+	}
+	
+	public void requestTrajectory(Plane plane) {
+		Flight flight = plane.getFlight();
+		String idFlight = flight.getFlightID();
+		Trajectory initialTrajectory = flight.getTrajectory();
+		Trajectory newTrajectory = controller.respondTrajectory(initialTrajectory);
+		flight.setTrajectory(newTrajectory);		
 	}
 
 	private Date calculNewDate(Date date) {
