@@ -12,6 +12,7 @@ public class Trajectory {
 	public Trajectory(Airport source, Airport destination) {
 		this.source = source;
 		this.destination = destination;
+		points= calculTrajectory();
 	}
 		
 	public void setPoints (ArrayList<Position> points) {
@@ -62,7 +63,41 @@ public class Trajectory {
 
 	public ArrayList<Position> calculTrajectory() {
 		// TODO Auto-generated method stub
-		return null;
+		Position point;
+		int xA, xB, yA, yB;
+		xA = this.source.getAirportID().getAirportPosition().getX();
+		yA = this.source.getAirportID().getAirportPosition().getY();		
+		xB = this.destination.getAirportID().getAirportPosition().getX();
+		yB = this.destination.getAirportID().getAirportPosition().getY();
+		/**/
+		if (xA > xB){
+			for (int x=xA; x < xB; x-=10 ) {
+				int y = (int) ((x* Math.abs(yB - yA)) / (Math.abs(xB - xA)));
+				if (yB > yA) {
+					point = new Position (x, yA+y);
+				}
+				else {
+					point = new Position (x, yA-y);
+				}
+				this.points.add(point);
+			}						
+		}
+		
+		else {
+			for (int x=xA; x < xB; x+=10 ) {
+				int y = (int) ((x* Math.abs(yB - yA)) / (Math.abs(xB - xA)));
+				if (yB > yA) {
+					point = new Position (x, yA+y);
+				}
+				else {
+					point = new Position (x, yA-y);
+				}
+				this.points.add(point);
+			}
+			
+		}
+		
+		return this.points;
 	}
 	
 	
