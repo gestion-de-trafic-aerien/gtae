@@ -22,7 +22,7 @@ public class Main {
 	public static void main(String[] args) {
 		ArrayList<Runway> runways = new ArrayList<>();
 		runways.add(new Runway(RunwayID.R1,Status.FREE));
-		Airport alg = new Airport(AirportID.ALGIERS,runways);
+		Airport alg = new Airport(AirportID.ALGIERS,runways, null);
 		Airport paris = new Airport(AirportID.PARIS,runways);
 		ArrayList<Position> points= new ArrayList<>();
 		points.add(new Position(500, 400));
