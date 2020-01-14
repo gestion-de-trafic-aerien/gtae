@@ -63,7 +63,7 @@ public class Flight {
 
 	@Override
 	public String toString() {
-		return "Flight [trajectory=" + trajectory + ", flightID=" + flightID + ", departureDate=" + departureDate
+		return "Flight [flightID=" + flightID + ", departureDate=" + departureDate
 				+ ", source=" + source + ", destination=" + destination + "]";
 	}
 	

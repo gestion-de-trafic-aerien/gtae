@@ -1,17 +1,19 @@
 package Motor;
-
 import java.util.ArrayList;
 import java.util.List;
+
+
 import data.Airport;
 import data.Flight;
 import data.GlobaleData;
 import data.Plane;
+import data.Position;
 import data.Trajectory;
 import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
 import Motor.Controller;
 
-public class Simulator  {
+public class Simulator implements Runnable  {
 	
 
 	
@@ -62,7 +64,8 @@ public class Simulator  {
 		Trajectory newTrajectory = controller.respondTrajectory(initialTrajectory);
 		flight.setTrajectory(newTrajectory);		
 	}
-
+	
+	
 
 
 

@@ -41,7 +41,12 @@ public class Main {
 		 Controller controller=new Controller();
 		 GlobaleData data= new GlobaleData(waitingPlanes, airports);
 		Simulator simulator= new Simulator(data, controller);
+		System.out.println(plane1.toString());
 		simulator.requestTakeOFF(plane1);
+		simulator.requestLanding(plane1);
+		
+		
+		
 	}
 
 }

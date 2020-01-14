@@ -71,9 +71,12 @@ public class Plane {
 
 	@Override
 	public String toString() {
-		return "Plane [planeID=" + planeID + ", position=" + position + ", speed=" + speed + ", statuts=" + statuts
-				+ ", fuel=" + fuel + ", fuelConsumption=" + fuelConsumption + ", flight=" + flight + "]";
+		return "Plane [planeID=" + planeID + ", flight=" + flight + ", statuts=" + statuts + ", position=" + position
+				+ ", speed=" + speed + ", fuel=" + fuel + "]";
 	}
+
+
+
 	
 
 	
