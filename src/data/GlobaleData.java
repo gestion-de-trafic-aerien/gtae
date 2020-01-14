@@ -6,20 +6,22 @@ import java.util.List;
 
 
 public class GlobaleData {
-	private List<Plane> waitingPlanes=new ArrayList<>();
-	private List<Airport> airports = new ArrayList<>();
+	private ArrayList<Plane> waitingPlanes=new ArrayList<>();
+	private ArrayList<Airport> airports = new ArrayList<>();
 	
-	public GlobaleData(List<Plane> waitingPlanes, List<Airport> airports) {
+	public GlobaleData(ArrayList<Plane> waitingPlanes, ArrayList<Airport> airports) {
 		super();
 		this.waitingPlanes = waitingPlanes;
 		this.airports = airports;
 	}
 
-	public List<Plane> getWaitingPlanes() {
+	
+
+	public ArrayList<Plane> getWaitingPlanes() {
 		return waitingPlanes;
 	}
 
-	public List<Airport> getAirports() {
+	public ArrayList<Airport> getAirports() {
 		return airports;
 	}
 	

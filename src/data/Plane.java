@@ -11,18 +11,18 @@ import dataEnum.PlaneID;
 public class Plane {
 	
 	private  PlaneID planeID;
-	private  Point2D positionPoint2d;
+	private  Position position;
 	private  double speed;
 	private  FlightStatus statuts;
 	private  int fuel;
 	private  int fuelConsumption;
 	private  Flight flight;
 	
-	public Plane(PlaneID planeID, Point2D positionPoint2d, double speed, FlightStatus statuts, int fuel,
+	public Plane(PlaneID planeID, Position position, double speed, FlightStatus statuts, int fuel,
 			int fuelConsumption, Flight flight) {
 		super();
 		this.planeID = planeID;
-		this.positionPoint2d = positionPoint2d;
+		this.position = position;
 		this.speed = speed;
 		this.statuts = statuts;
 		this.fuel = fuel;
@@ -61,19 +61,21 @@ public class Plane {
 	public int getFuelConsumption() {
 		return fuelConsumption;
 	}
-	public Point2D getPositionPoint2d() {
-		return positionPoint2d;
+	public Position getPosition() {
+		return position;
 	}
-	public void setPositionPoint2d(Point2D positionPoint2d) {
-		this.positionPoint2d = positionPoint2d;
+	public void setPosition(Position position) {
+		this.position = position;
 	}
-	
+
+
 	@Override
 	public String toString() {
-		return "Plane [planeID=" + planeID + ", speed=" + speed + ", statuts=" + statuts + ", fuel=" + fuel
-				+ ", fuelConsumption=" + fuelConsumption + ", flight=" + flight + "]";
+		return "Plane [planeID=" + planeID + ", position=" + position + ", speed=" + speed + ", statuts=" + statuts
+				+ ", fuel=" + fuel + ", fuelConsumption=" + fuelConsumption + ", flight=" + flight + "]";
 	}
 	
+
 	
 	
 	
