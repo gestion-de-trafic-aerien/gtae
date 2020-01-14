@@ -6,12 +6,14 @@ package data;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class Flight {
 	
 	private String flightID;
 	private Date departureDate;
 	private Airport source;
 	private Airport destination;
+	private Trajectory trajectory;
 	
 	/*
 	 * Constructors
@@ -22,11 +24,11 @@ public class Flight {
 		this.departureDate = departureDate;
 		this.source = source;
 		this.destination = destination;
+		trajectory=new Trajectory(source, destination);
 	}
 
 	public ArrayList <Position> getTrajectory() {
-		Trajectory trajectory= new Trajectory(source, destination);
-		return trajectory.calculTrajectory();
+		return trajectory.getTrajectory();
 	}
 
 	public Date getDepartureDate() {

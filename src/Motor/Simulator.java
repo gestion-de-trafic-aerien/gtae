@@ -20,12 +20,12 @@ public class Simulator implements Runnable  {
 	
 	
 	
-	public void requestTrajectory(Plane plane) {
+	/*public void requestTrajectory(Plane plane) {
 		Flight flight = plane.getFlight();
 		Trajectory initialTrajectory = flight.getTrajectory();
 		Trajectory newTrajectory = controller.respondTrajectory(initialTrajectory);
 		flight.setTrajectory(newTrajectory);		
-	}
+	}*/
 
 
 
@@ -34,6 +34,7 @@ public class Simulator implements Runnable  {
 		Fly flying;
 		Landing landing;
 		TakeOFF takingOff;
+
 		for(Plane plane : data.getWaitingPlanes()) {
 			//Date currentDate = null;
 			//if (plane.getFlight().getDepartureDate().equals(currentDate)) {

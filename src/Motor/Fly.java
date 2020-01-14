@@ -15,7 +15,8 @@ public class Fly implements Runnable {
 	
 	public void run() {
 		ArrayList<Position> trajectory=new ArrayList<>();
-		trajectory=plane.getFlight().getTrajectory().getPoints();
+		trajectory=plane.getFlight().getTrajectory();
+		//System.out.println(trajectory);
 		for (Position pos : trajectory) {
 			plane.setPosition(pos);
 			System.out.println(plane.toString());

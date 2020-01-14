@@ -12,9 +12,13 @@ public class Trajectory {
 	public Trajectory(Airport source, Airport destination) {
 		this.source = source;
 		this.destination = destination;
-		points= calculateTrajectory();
+		points=new ArrayList<>();
+		calculateTrajectory();
 	}
 		
+	public ArrayList<Position> getTrajectory(){
+		return points;
+	}
 	public void setPoints (ArrayList<Position> points) {
 		this.points = points;
 	}
@@ -23,9 +27,6 @@ public class Trajectory {
 		this.altitude = altitude;
 	}
 	
-	public ArrayList<Position> getPoints (){
-		return this.points;
-	}
 	
 	public int getAltitude() {
 		return this.altitude;
@@ -61,7 +62,7 @@ public class Trajectory {
 	}
 	
 
-	public ArrayList<Position> calculateTrajectory() {
+	public void calculateTrajectory() {
 		// TODO Auto-generated method stub
 		Position point;
 		int xA, xB, yA, yB;
@@ -69,7 +70,7 @@ public class Trajectory {
 		yA = this.source.getAirportID().getAirportPosition().getY();		
 		xB = this.destination.getAirportID().getAirportPosition().getX();
 		yB = this.destination.getAirportID().getAirportPosition().getY();
-		/**/
+		
 		if (xA > xB){
 			for (int x=xA; x < xB; x-=10 ) {
 				int y = (int) ((x* Math.abs(yB - yA)) / (Math.abs(xB - xA)));
@@ -83,7 +84,7 @@ public class Trajectory {
 			}						
 		}
 		
-		else {
+		else if (xA<xB) {
 			for (int x=xA; x < xB; x+=10 ) {
 				int y = (int) ((x* Math.abs(yB - yA)) / (Math.abs(xB - xA)));
 				if (yB > yA) {
@@ -96,8 +97,20 @@ public class Trajectory {
 			}
 			
 		}
+		else if (xA==xB) {
+			if(yA<yB) {
+				for (int y=yA; y < yB; y+=10 ) {
+					point = new Position (xA, y);
+					this.points.add(point);
+
+
+				}
+						
+			}
+	
+			
+		}
 		
-		return this.points;
 	}
 	
 	
