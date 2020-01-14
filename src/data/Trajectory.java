@@ -12,7 +12,7 @@ public class Trajectory {
 	public Trajectory(Airport source, Airport destination) {
 		this.source = source;
 		this.destination = destination;
-		points= calculTrajectory();
+		points= calculateTrajectory();
 	}
 		
 	public void setPoints (ArrayList<Position> points) {
@@ -61,7 +61,7 @@ public class Trajectory {
 	}
 	
 
-	public ArrayList<Position> calculTrajectory() {
+	public ArrayList<Position> calculateTrajectory() {
 		// TODO Auto-generated method stub
 		Position point;
 		int xA, xB, yA, yB;
