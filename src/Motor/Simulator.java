@@ -1,7 +1,6 @@
 package Motor;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import data.Airport;
@@ -10,11 +9,13 @@ import data.Plane;
 import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
 
-public class Simulator {
+public class Simulator implements Runnable {
+	
+
 	
 	private GlobaleData data;
 	private List<Plane> waitingPlanes;
-	Controller controller;
+	private Controller controller;
 	
 	public Simulator(GlobaleData data, Controller controller) {
 		super();
@@ -43,6 +44,14 @@ public class Simulator {
 		else {
 			plane.setStatuts(FlightStatus.WAITING_FOR_LANDING);
 		}
+	}
+
+	@Override
+	public void run() {
+		synchronized (this) {
+			
+		}
+		
 	}
 
 
