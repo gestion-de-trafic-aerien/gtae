@@ -3,7 +3,6 @@
  */
 package data;
 
-import java.awt.List;
 import java.util.ArrayList;
 import data.Runway;
 import dataEnum.AirportID;
@@ -15,11 +14,12 @@ public class Airport {
 
 	private  AirportID airportID;
 	private  ArrayList  <Runway> runways;
-	
-	public Airport(AirportID airportID, ArrayList<Runway> runways) {
+		
+	public Airport(AirportID airportID, ArrayList<Runway> runways, Position airportPosition) {
 		super();
 		this.airportID = airportID;
 		this.runways = runways;
+		
 	}
 
 	public Airport() {
@@ -37,6 +37,7 @@ public class Airport {
 	public AirportID getAirportID() {
 		return airportID;
 	}
+	
 
 	@Override
 	public String toString() {
