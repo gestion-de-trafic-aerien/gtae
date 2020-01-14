@@ -49,7 +49,6 @@ public class Simulator {
 	
 	public void requestTrajectory(Plane plane) {
 		Flight flight = plane.getFlight();
-		String idFlight = flight.getFlightID();
 		Trajectory initialTrajectory = flight.getTrajectory();
 		Trajectory newTrajectory = controller.respondTrajectory(initialTrajectory);
 		flight.setTrajectory(newTrajectory);		
