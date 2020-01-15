@@ -32,13 +32,13 @@ public class Trajectory {
 		return this.altitude;
 	}
 	
-	public double distance(Flight flight){
-		Position sourcePosition =  flight.getSource().getAirportID().getAirportPosition();
-		Position destinationPosition = flight.getDestination().getAirportID().getAirportPosition();		
+	public double distance(){
+		Position sourcePosition =  this.source.getAirportPosition();
+		Position destinationPosition = this.destination.getAirportPosition();		
 		double dx = (sourcePosition.getX() - destinationPosition.getX());
 		double dy = (sourcePosition.getY() - destinationPosition.getY());
 		double distance = Math.sqrt(dx*dx + dy*dy);
-		System.out.println("The distance of the flight ID:" + flight.getFlightID() + "is" + distance + "Km");
+		System.out.println("The distance of the flight is" + distance + "Km");
 		return distance;
 		
 	}
@@ -64,52 +64,21 @@ public class Trajectory {
 
 	public void calculateTrajectory() {
 		// TODO Auto-generated method stub
-		Position point;
-		int xA, xB, yA, yB;
-		xA = this.source.getAirportID().getAirportPosition().getX();
-		yA = this.source.getAirportID().getAirportPosition().getY();		
-		xB = this.destination.getAirportID().getAirportPosition().getX();
-		yB = this.destination.getAirportID().getAirportPosition().getY();
-		
-		if (xA > xB){
-			for (int x=xA; x < xB; x-=10 ) {
-				int y = (int) ((x* Math.abs(yB - yA)) / (Math.abs(xB - xA)));
-				if (yB > yA) {
-					point = new Position (x, yA+y);
-				}
-				else {
-					point = new Position (x, yA-y);
-				}
-				this.points.add(point);
-			}						
-		}
-		
-		else if (xA<xB) {
-			for (int x=xA; x < xB; x+=10 ) {
-				int y = (int) ((x* Math.abs(yB - yA)) / (Math.abs(xB - xA)));
-				if (yB > yA) {
-					point = new Position (x, yA+y);
-				}
-				else {
-					point = new Position (x, yA-y);
-				}
-				this.points.add(point);
-			}
+		int xA, xB, yA, yB ,x, y;
+		double distance=distance();
+		xA = this.source.getAirportPosition().getX();
+		yA = this.source.getAirportPosition().getY();		
+		xB = this.destination.getAirportPosition().getX();
+		yB = this.destination.getAirportPosition().getY();
+		for(int i=0;i<distance;i++) {
+			x=(int) (xA+(xB-xA)*(i/distance));
+			y=(int) (yA+(yB-yA)*(i/distance));
+			points.add(new Position(x, y));
 			
 		}
-		else if (xA==xB) {
-			if(yA<yB) {
-				for (int y=yA; y < yB; y+=10 ) {
-					point = new Position (xA, y);
-					this.points.add(point);
-
-
-				}
-						
-			}
-	
-			
-		}
+		
+		
+		
 		
 	}
 	
