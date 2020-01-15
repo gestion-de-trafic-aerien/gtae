@@ -3,7 +3,6 @@ package Motor;
 import data.Airport;
 import data.Trajectory;
 import dataEnum.RunwayID;
-
 public class Controller {
 	
 	

@@ -1,41 +1,39 @@
-/*
- * 
- */
 package data;
 
-import java.awt.geom.Point2D;
+
+import java.util.Random;
 
 import dataEnum.FlightStatus;
-import dataEnum.PlaneID;
 
-public class Plane {
+public abstract class Plane {
 	
-	private  PlaneID planeID;
+	private  int planeID;
 	private  Position position;
-	private  double speed;
 	private  FlightStatus statuts;
-	private  int fuel;
-	private  int fuelConsumption;
 	private  Flight flight;
 	
-	public Plane(PlaneID planeID, Position position, double speed, FlightStatus statuts, int fuel,
-			int fuelConsumption, Flight flight) {
-		super();
-		this.planeID = planeID;
-		this.position = position;
-		this.speed = speed;
-		this.statuts = statuts;
-		this.fuel = fuel;
-		this.fuelConsumption = fuelConsumption;
+	
+	public Plane(Flight flight) {
+		this.planeID = generatePlaneID();
+		this.position = null;
+		this.statuts = FlightStatus.WAITING_FOR_TAKING_OFF;
 		this.flight = flight;
 	}
 
 	
-	public double getSpeed() {
-		return speed;
-	}
-	public void setSpeed(double speed) {
-		this.speed = speed;
+	
+
+
+	public abstract double getSpeed();
+	public abstract void setSpeed(int speed);
+	public abstract int getFuel();
+	public abstract void setFuel(int fuel);
+	public abstract int getFuelConsumption();
+
+	public int generatePlaneID() {
+		// TODO Auto-generated method stub
+		Random random=new Random();
+		return random.nextInt(10000);
 	}
 	public FlightStatus getStatuts() {
 		return statuts;
@@ -43,23 +41,15 @@ public class Plane {
 	public void setStatuts(FlightStatus statuts) {
 		this.statuts = statuts;
 	}
-	public int getFuel() {
-		return fuel;
-	}
-	public void setFuel(int fuel) {
-		this.fuel = fuel;
-	}
+	
 	public Flight getFlight() {
 		return flight;
 	}
 	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
-	public PlaneID getPlaneID() {
+	public int getPlaneID() {
 		return planeID;
-	}
-	public int getFuelConsumption() {
-		return fuelConsumption;
 	}
 	public Position getPosition() {
 		return position;
@@ -69,11 +59,19 @@ public class Plane {
 	}
 
 
+
+
+
 	@Override
 	public String toString() {
-		return "Plane [planeID=" + planeID + ", flight=" + flight + ", statuts=" + statuts + ", position=" + position
-				+ ", speed=" + speed + ", fuel=" + fuel + "]";
+		return "Plane [planeID=" + planeID + ", position=" + position + ", statuts=" + statuts + ", flight=" + flight.getFlightID()+" source "+flight.getSource().getAirportID()+" destination "+flight.getDestination().getAirportID()
+				+ "]\n";
 	}
+
+
+	
+
+
 
 
 

@@ -2,14 +2,15 @@ package data;
 
 import java.util.ArrayList;
 
+import dataEnum.AirportID;
+
 public class Trajectory {
 	
 	private ArrayList<Position> points; 
 	private int altitude;
-	private Airport source;
-	private Airport destination;
-	
-	public Trajectory(Airport source, Airport destination) {
+	private AirportID source;
+	private AirportID destination;
+	public Trajectory(AirportID source, AirportID destination) {
 		this.source = source;
 		this.destination = destination;
 		points=new ArrayList<>();
@@ -43,24 +44,7 @@ public class Trajectory {
 		
 	}
 	
-	public double flownOverDistance (Plane plane, Flight flight) {
-		Position initialPosition = flight.getSource().getAirportID().getAirportPosition();
-		Position checkpoint = plane.getPosition();		
-		double dx = (initialPosition.getX() - checkpoint.getX());
-		double dy = (initialPosition.getY() - checkpoint.getY());
-		double flownOverDistance = Math.sqrt(dx*dx + dy*dy);
-		System.out.println("The distance of the flight ID:" + flight.getFlightID() + "is" + flownOverDistance + "Km");
-		return flownOverDistance;
-		
-	}
-	
-	public double leftDistance (Flight flight, double distance, double flownOverDistance) {
-		double leftDistance = distance - flownOverDistance;
-		System.out.println("The left distance of the flight ID:" + flight.getFlightID() + "is" + leftDistance + "Km");
-		return leftDistance;
-		
-	}
-	
+
 
 	public void calculateTrajectory() {
 		// TODO Auto-generated method stub

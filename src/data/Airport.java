@@ -56,6 +56,13 @@ public class Airport {
 		}
 		return null;
 	}
+	public void setStatusRunway(RunwayID id, Status status) {
+		for(Runway runway1 : runways) {
+			if(runway1.getRunwayID().equals(id)){
+				runway1.setStatus(status);
+			}
+		}
+	}
 	
 	
 

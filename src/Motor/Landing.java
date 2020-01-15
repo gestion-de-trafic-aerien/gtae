@@ -4,8 +4,10 @@ import java.util.Random;
 
 import data.Airport;
 import data.Plane;
+import dataEnum.AirportID;
 import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
+import dataEnum.Status;
 
 public class Landing implements Runnable {
 	Plane plane;
@@ -22,12 +24,15 @@ public class Landing implements Runnable {
 	public void run() {
 		RunwayID runway= controller.respondLanding(desAirport);
 		if(runway!=null) {
+			plane.getFlight().getDestination().setStatusRunway(runway, Status.OCCUPIED);
 			plane.setStatuts(FlightStatus.IS_LANDING);
 			System.out.println("the Flight "+plane.getFlight().toString()+"process to landing on "+runway.name());
 			try {
 				Thread.sleep(5000);
 				plane.setStatuts(FlightStatus.LANDED);
 				System.out.println("the Flight "+plane.getFlight().toString()+"landed successfuly");
+				plane.getFlight().getDestination().setStatusRunway(runway, Status.FREE);
+
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				System.out.println("the plane crushed while landing !!!");

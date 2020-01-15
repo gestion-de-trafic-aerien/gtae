@@ -13,10 +13,10 @@ public class Runway {
 	private  RunwayID runwayID;
 	private  Status status;
 	
-	public Runway(RunwayID runwayID, Status status) {
+	public Runway(RunwayID runwayID) {
 		super();
 		this.runwayID = runwayID;
-		this.status = status;
+		this.status = Status.FREE;
 	}
 	
 	

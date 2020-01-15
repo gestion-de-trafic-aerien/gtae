@@ -5,6 +5,9 @@ package data;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
+
+import dataEnum.AirportID;
 
 
 public class Flight {
@@ -18,13 +21,13 @@ public class Flight {
 	/*
 	 * Constructors
 	 */
-	public Flight( String flightID, Date departureDate, Airport source, Airport destination) {
+	public Flight(Date departureDate, Airport source, Airport destination) {
 		super();
-		this.flightID = flightID;
+		this.flightID = generateFlightID();
 		this.departureDate = departureDate;
 		this.source = source;
 		this.destination = destination;
-		trajectory=new Trajectory(source, destination);
+		trajectory=new Trajectory(source.getAirportID(), destination.getAirportID());
 	}
 
 	public ArrayList <Position> getTrajectory() {
@@ -58,7 +61,21 @@ public class Flight {
 	public String getFlightID() {
 		return flightID;
 	}
+	
+	public String generateFlightID() {
+		String flightID="";
+		Random rand = new Random();
+		String alphabet = "abcd123456789";
+		int longueur = alphabet.length();
+		for(int i = 0; i < 5; i++) {
+		  int k = rand.nextInt(longueur);
+		  flightID+=alphabet.charAt(k);
+		}
+		  return flightID;
+		
+	}
 
+	
 	@Override
 	public String toString() {
 		return "Flight [flightID=" + flightID + ", departureDate=" + departureDate
