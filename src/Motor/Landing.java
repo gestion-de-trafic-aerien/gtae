@@ -26,11 +26,11 @@ public class Landing implements Runnable {
 		if(runway!=null) {
 			plane.getFlight().getDestination().setStatusRunway(runway, Status.OCCUPIED);
 			plane.setStatuts(FlightStatus.IS_LANDING);
-			System.out.println("the Flight "+plane.getFlight().toString()+"process to landing on "+runway.name());
+			System.out.println("the flight "+plane.getFlight().getFlightID()+" process to landing on "+runway.name());
 			try {
 				Thread.sleep(5000);
 				plane.setStatuts(FlightStatus.LANDED);
-				System.out.println("the Flight "+plane.getFlight().toString()+"landed successfuly");
+				System.out.println("the Flight "+plane.getFlight().getFlightID()+" landed successfuly");
 				plane.getFlight().getDestination().setStatusRunway(runway, Status.FREE);
 
 			} catch (InterruptedException e) {

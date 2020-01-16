@@ -39,7 +39,6 @@ public class Trajectory {
 		double dx = (sourcePosition.getX() - destinationPosition.getX());
 		double dy = (sourcePosition.getY() - destinationPosition.getY());
 		double distance = Math.sqrt(dx*dx + dy*dy);
-		System.out.println("The distance of the flight is" + distance + "Km");
 		return distance;
 		
 	}

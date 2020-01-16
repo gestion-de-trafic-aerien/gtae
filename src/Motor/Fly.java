@@ -19,7 +19,7 @@ public class Fly implements Runnable {
 		if(trajectory!=null) {
 			for (Position pos : trajectory) {
 				plane.setPosition(pos);
-				System.out.println(plane.toString());
+				//System.out.println(plane.toString());
 				try {
 					Thread.sleep((long) (70000/plane.getSpeed()));
 				} catch (InterruptedException e) {

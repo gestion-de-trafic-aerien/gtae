@@ -24,11 +24,11 @@ public class TakeOFF implements Runnable {
 		if(runway!=null) {
 			plane.getFlight().getSource().setStatusRunway(runway, Status.OCCUPIED);
 			plane.setStatuts(FlightStatus.IS_TAKING_OFF);
-			System.out.println("the Flight "+plane.getFlight().toString()+"process to taking-off"+runway.name());
+			System.out.println("the Flight "+plane.getFlight().getFlightID()+" process to taking-off"+runway.name());
 			try {
 				Thread.sleep(10000);
 				plane.setStatuts(FlightStatus.FLYING);
-				System.out.println("the Flight "+plane.getFlight().toString()+"taked-off successfuly");
+				System.out.println("the Flight "+plane.getFlight().getFlightID()+" taked-off successfuly");
 				plane.getFlight().getSource().setStatusRunway(runway, Status.FREE);
 
 			} catch (InterruptedException e) {
@@ -37,13 +37,13 @@ public class TakeOFF implements Runnable {
 			}
 		}
 		else {
-			plane.setStatuts(FlightStatus.WAITING_FOR_LANDING);
+			plane.setStatuts(FlightStatus.WAITING_FOR_TAKING_OFF);
 			
 			Random random = new Random();
 			int retard;
 			retard = random.nextInt(9);
 			
-			System.out.println("taking-off is delayed for "+retard+" minutes");
+			System.out.println("the flight "+plane.getFlight().getFlightID()+" taking off is delayed for "+retard+" minutes");
 			
 			try {
 				
