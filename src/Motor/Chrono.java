@@ -44,7 +44,7 @@ public class Chrono extends TimerTask {
 			minute = 0;
 			
 		}
-		System.out.println(hour+" : "+minute);
+		System.out.println(hour'+" : "+minute);
 
 	}
 
