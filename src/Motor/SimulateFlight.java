@@ -1,5 +1,8 @@
 package Motor;
 
+
+import java.lang.Thread.State;
+
 import data.Plane;
 
 public class SimulateFlight implements Runnable {
@@ -15,9 +18,22 @@ public class SimulateFlight implements Runnable {
 		TakeOFF takingOFF = new TakeOFF(plane, controller);
 		Fly flying = new Fly(plane);
 		Landing  landing = new Landing(plane, controller);
-		takingOFF.run();
-		flying.run();
-		landing.run();		
+		Thread takingOffThread= new Thread(takingOFF);
+		Thread flyingThread= new Thread(flying);
+		Thread landingThread= new Thread(landing);
+	
+		takingOffThread.start();
+		if(takingOffThread.getState().equals(Thread.State.TERMINATED)) {
+			flyingThread.start();
+			if(flyingThread.getState().equals(Thread.State.TERMINATED)) {
+				landingThread.start();
+
+			}
+		}
+			
+			
+		
+
 	}
 
 }

@@ -1,6 +1,9 @@
 package Motor;
 import data.GlobaleData;
 import data.Plane;
+
+import java.util.Timer;
+
 import Motor.Controller;
 public class Simulator implements Runnable  {
 	
@@ -15,8 +18,11 @@ public class Simulator implements Runnable  {
 	}
 	
 	public void run() {
+		Timer timer= new Timer();
 		for(Plane plane : data.getWaitingPlanes()) {
-			new Thread(new SimulateFlight(plane, controller)).start();	
+			
+			new Thread(new SimulateFlight(plane, controller)).start();
+			
 		}
 	}
 	

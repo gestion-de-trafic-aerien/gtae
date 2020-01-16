@@ -48,8 +48,9 @@ public class Airport {
 	}
 
 	public RunwayID freeRunway() {
+		Status status=null;
 		for(Runway runway1 : runways) {
-			Status status= runway1.getStatus();
+			status= runway1.getStatus();
 			if(status.equals(Status.FREE)){
 				return runway1.getRunwayID();
 			}

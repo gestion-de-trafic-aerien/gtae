@@ -19,7 +19,7 @@ public class Fly implements Runnable {
 		if(trajectory!=null) {
 			for (Position pos : trajectory) {
 				plane.setPosition(pos);
-				//System.out.println(plane.toString());
+				System.out.println("flight "+plane.getFlight().getFlightID()+" "+plane.getStatuts()+" "+plane.getPosition().toString());
 				try {
 					Thread.sleep((long) (70000/plane.getSpeed()));
 				} catch (InterruptedException e) {

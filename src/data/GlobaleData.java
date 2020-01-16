@@ -66,8 +66,15 @@ public class GlobaleData {
 		Airport source=null;
 		Airport destination=null;
 		Date date;
+		waitingPlanes.add(new Airbus(new Flight(null, airports.get(0), airports.get(2))));
+		waitingPlanes.add(new Airbus(new Flight(null, airports.get(0), airports.get(2))));
+		waitingPlanes.add(new Airbus(new Flight(null, airports.get(0), airports.get(2))));
+		waitingPlanes.add(new Airbus(new Flight(null, airports.get(0), airports.get(2))));
 
-		for(int i=0;i<48;i++) {
+
+		
+
+		/*for(int i=0;i<48;i++) {
 			int heure=i/60;
 			int min=i%60;
 			date=new Date(2020, 01, 21, heure, min);
@@ -85,7 +92,7 @@ public class GlobaleData {
 			}
 			
 			
-		}
+		}*/
 	}
 
 	@Override
