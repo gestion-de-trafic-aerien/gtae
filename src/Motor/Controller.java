@@ -16,8 +16,10 @@ public class Controller {
 		if(id!=null) {
 			return id;
 		}
-		
-		return null;
+		else {
+			return null;
+
+		}
 	}
 	
 	public RunwayID respondLanding (Airport destinationAirport) {

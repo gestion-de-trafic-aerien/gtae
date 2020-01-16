@@ -24,12 +24,15 @@ public class TakeOFF implements Runnable {
 		if(runway!=null) {
 			plane.getFlight().getSource().setStatusRunway(runway, Status.OCCUPIED);
 			plane.setStatuts(FlightStatus.IS_TAKING_OFF);
-			System.out.println("the Flight "+plane.getFlight().toString()+"process to taking-off"+runway.name());
+			System.out.println(plane.getFlight().getSource().getRunways().toString());
+			System.out.println("the Flight "+plane.getFlight().getFlightID()+" process to taking-off"+runway.name());
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(3000);
+				System.out.println("the Flight "+plane.getFlight().getFlightID()+" taked-off successfuly");
 				plane.setStatuts(FlightStatus.FLYING);
-				System.out.println("the Flight "+plane.getFlight().toString()+"taked-off successfuly");
 				plane.getFlight().getSource().setStatusRunway(runway, Status.FREE);
+				System.out.println(plane.getFlight().getSource().getRunways().toString());
+				Thread.currentThread().interrupt();
 
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -37,18 +40,18 @@ public class TakeOFF implements Runnable {
 			}
 		}
 		else {
-			plane.setStatuts(FlightStatus.WAITING_FOR_LANDING);
+			plane.setStatuts(FlightStatus.WAITING_FOR_TAKING_OFF);
 			
 			Random random = new Random();
 			int retard;
-			retard = random.nextInt(9);
+			retard = random.nextInt(30);
 			
-			System.out.println("taking-off is delayed for "+retard+" minutes");
+			System.out.println("the flight "+plane.getFlight().getFlightID()+" taking off is delayed for "+retard+" minutes");
 			
 			try {
 				
-				Thread.sleep(10000*retard);
-				Thread.currentThread().run();
+				Thread.sleep(1000*retard);
+				this.run();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

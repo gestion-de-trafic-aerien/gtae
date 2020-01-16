@@ -26,11 +26,11 @@ public class Landing implements Runnable {
 		if(runway!=null) {
 			plane.getFlight().getDestination().setStatusRunway(runway, Status.OCCUPIED);
 			plane.setStatuts(FlightStatus.IS_LANDING);
-			System.out.println("the Flight "+plane.getFlight().toString()+"process to landing on "+runway.name());
+			System.out.println("the flight "+plane.getFlight().getFlightID()+" process to landing on "+runway.name());
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 				plane.setStatuts(FlightStatus.LANDED);
-				System.out.println("the Flight "+plane.getFlight().toString()+"landed successfuly");
+				System.out.println("the Flight "+plane.getFlight().getFlightID()+" landed successfuly");
 				plane.getFlight().getDestination().setStatusRunway(runway, Status.FREE);
 
 			} catch (InterruptedException e) {
@@ -42,12 +42,12 @@ public class Landing implements Runnable {
 			plane.setStatuts(FlightStatus.WAITING_FOR_LANDING);
 			Random random = new Random();
 			int retard;
-			retard = random.nextInt(9);
+			retard = random.nextInt(30);
 			System.out.println("landing is delayed for "+retard+" minutes");
 			
 			try {
 				
-				Thread.sleep(10000*retard);
+				Thread.sleep(1000*retard);
 				run();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

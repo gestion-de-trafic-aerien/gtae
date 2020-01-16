@@ -64,8 +64,7 @@ public abstract class Plane {
 
 	@Override
 	public String toString() {
-		return "Plane [planeID=" + planeID + ", position=" + position + ", statuts=" + statuts + ", flight=" + flight.getFlightID()+" source "+flight.getSource().getAirportID()+" destination "+flight.getDestination().getAirportID()
-				+ "]\n";
+		return "planeID=" + planeID + ", statuts=" + statuts +" "+flight.toString()+"]\n";
 	}
 
 
