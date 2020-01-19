@@ -1,6 +1,9 @@
 package Motor;
 import data.GlobaleData;
 import data.Plane;
+import gui.Animation;
+import gui.FlightPanel;
+
 import java.util.Date;
 import java.util.Timer;
 
@@ -11,10 +14,16 @@ public class Simulator implements Runnable  {
 	
 	private GlobaleData data;
 	private Controller controller;
+	private FlightPanel flightPanel;
+	private Animation animation;
+
 	public Simulator(GlobaleData data, Controller controller) {
 		super();
 		this.data = data;
 		this.controller=controller;
+		this.flightPanel=new FlightPanel(data.getWaitingPlanes());
+		this.animation=new Animation();
+		animation.add(flightPanel);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -38,6 +47,8 @@ public class Simulator implements Runnable  {
 				}
 				
 			}
+			flightPanel.setWaitingPlanes(data.getWaitingPlanes());
+			flightPanel.repaint();
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

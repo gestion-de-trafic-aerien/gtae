@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 import data.Plane;
 import data.Position;
+import gui.FlightPanel;
 
 public class Fly {
 	Plane plane;
-	
 	public Fly(Plane plane) {
 		this.plane=plane;
 	}
