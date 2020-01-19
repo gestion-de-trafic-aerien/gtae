@@ -1,8 +1,6 @@
 package Motor;
 
-import java.util.Timer;
 import java.util.TimerTask;
-
 public class Chrono extends TimerTask {
 	
 	private int hour ;
@@ -44,7 +42,6 @@ public class Chrono extends TimerTask {
 			minute = 0;
 			
 		}
-		System.out.println(hour+" : "+minute);
 
 	}
 

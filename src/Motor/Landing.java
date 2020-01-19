@@ -9,7 +9,7 @@ import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
 import dataEnum.Status;
 
-public class Landing implements Runnable {
+public class Landing {
 	Plane plane;
 	Airport desAirport;
 	Controller controller;
@@ -42,7 +42,7 @@ public class Landing implements Runnable {
 			plane.setStatuts(FlightStatus.WAITING_FOR_LANDING);
 			Random random = new Random();
 			int retard;
-			retard = random.nextInt(30);
+			retard = random.nextInt(10)+3;
 			System.out.println("landing is delayed for "+retard+" minutes");
 			
 			try {

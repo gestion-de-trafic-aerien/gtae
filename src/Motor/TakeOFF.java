@@ -8,7 +8,7 @@ import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
 import dataEnum.Status;
 
-public class TakeOFF implements Runnable {
+public class TakeOFF {
 	Plane plane;
 	Airport srcAirport;
 	Controller controller;
@@ -24,15 +24,14 @@ public class TakeOFF implements Runnable {
 		if(runway!=null) {
 			plane.getFlight().getSource().setStatusRunway(runway, Status.OCCUPIED);
 			plane.setStatuts(FlightStatus.IS_TAKING_OFF);
-			System.out.println(plane.getFlight().getSource().getRunways().toString());
+			//System.out.println(plane.getFlight().getSource().getRunways().toString());
 			System.out.println("the Flight "+plane.getFlight().getFlightID()+" process to taking-off"+runway.name());
 			try {
 				Thread.sleep(3000);
 				System.out.println("the Flight "+plane.getFlight().getFlightID()+" taked-off successfuly");
 				plane.setStatuts(FlightStatus.FLYING);
 				plane.getFlight().getSource().setStatusRunway(runway, Status.FREE);
-				System.out.println(plane.getFlight().getSource().getRunways().toString());
-				Thread.currentThread().interrupt();
+				//System.out.println(plane.getFlight().getSource().getRunways().toString());
 
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -44,7 +43,7 @@ public class TakeOFF implements Runnable {
 			
 			Random random = new Random();
 			int retard;
-			retard = random.nextInt(30);
+			retard = random.nextInt(10)+3;
 			
 			System.out.println("the flight "+plane.getFlight().getFlightID()+" taking off is delayed for "+retard+" minutes");
 			

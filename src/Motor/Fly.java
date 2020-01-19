@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import data.Plane;
 import data.Position;
 
-public class Fly implements Runnable {
+public class Fly {
 	Plane plane;
 	
 	public Fly(Plane plane) {
@@ -19,12 +19,10 @@ public class Fly implements Runnable {
 		if(trajectory!=null) {
 			for (Position pos : trajectory) {
 				plane.setPosition(pos);
-				System.out.println("flight "+plane.getFlight().getFlightID()+" "+plane.getStatuts()+" "+plane.getPosition().toString());
+				//System.out.println("flight "+plane.getFlight().getFlightID()+" "+plane.getStatuts()+" "+plane.getPosition().toString());
 				try {
 					Thread.sleep((long) (70000/plane.getSpeed()));
-				} catch (InterruptedException e) {
-					System.out.println("plane has crushed!!");
-				}
+				} catch (InterruptedException e) {}
 			}
 		}
 		
