@@ -1,29 +1,20 @@
 package tests;
-
-import java.awt.GraphicsConfiguration;
-import java.awt.HeadlessException;
-
 import javax.swing.JFrame;
 
 public class Animation extends JFrame {
-
-	public Animation() throws HeadlessException {
-		// TODO Auto-generated constructor stub
+	private JFrame frame;
+	public  Animation() {
+		frame=new JFrame();
+		setCaracteristics();
 	}
-
-	public Animation(GraphicsConfiguration gc) {
-		super(gc);
-		// TODO Auto-generated constructor stub
+	private void setCaracteristics() {
+		frame.setTitle("Gestion de trafic aerien");
+		frame.setSize(1000, 1000);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
+		frame.setVisible(true);
+		    
 	}
-
-	public Animation(String title) throws HeadlessException {
-		super(title);
-		// TODO Auto-generated constructor stub
-	}
-
-	public Animation(String title, GraphicsConfiguration gc) {
-		super(title, gc);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 }
