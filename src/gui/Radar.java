@@ -1,14 +1,12 @@
 package gui;
 
-import java.awt.Color;
-import java.awt.Component;
+import java.awt.Color;import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
-
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 
 import Motor.Simulator;
 import data.Airport;
@@ -18,7 +16,7 @@ import dataEnum.FlightStatus;
 @SuppressWarnings("serial")
 public class Radar extends JPanel implements Icon {
 	public Radar() {
-		super();				
+		super();	
 	}
 	
 	public void paintComponent(Graphics g) {
