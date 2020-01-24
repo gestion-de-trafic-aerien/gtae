@@ -24,6 +24,7 @@ public class Radar extends JPanel {
 		}
 		for(Plane plane : Simulator.data.getWaitingPlanes()){
 			if(plane.getPosition()!=null) {
+					g2.drawString(plane.getFlight().getFlightID(), plane.getPosition().getX(), plane.getPosition().getY());
 				if(plane.getStatuts().equals(FlightStatus.FLYING)) {
 					g2.setColor(Color.green);
 					g2.fillOval(plane.getPosition().getX(),plane.getPosition().getY(), 10, 10);
