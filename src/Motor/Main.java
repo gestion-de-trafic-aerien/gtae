@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		JFrame fenetre =new JFrame("simulation of air trafic");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fenetre.setSize(1000,600);
+		fenetre.setSize(1000,800);
 		fenetre.setLocationRelativeTo(null);
 		fenetre.setResizable(false);
 		fenetre.setAlwaysOnTop(true);
