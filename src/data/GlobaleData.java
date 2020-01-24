@@ -84,11 +84,11 @@ public class GlobaleData {
 		Airport source=null;
 		Airport destination=null;
 		Date date;
-		for(int i=0;i<1440;i+=2) {
+		for(int i=0;i<1440;i+=5) {
 			int heure=i/60;
 			int min=i%60;
 			date=new Date(2020, 01, 21, heure, min,0);
-			for (int j = 0; j <4; j++) {
+			for (int j = 0; j <1; j++) {
 				Random random = new Random();
 				int rd1=random.nextInt(airports.size());
 				int rd2=random.nextInt(airports.size());

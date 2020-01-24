@@ -4,17 +4,15 @@ import data.Plane;
 
 public class SimulateFlight implements Runnable {
 	private Plane plane;
-	Controller controller;
-	public SimulateFlight(Plane plane,Controller controller) {
+	public SimulateFlight(Plane plane) {
 		this.plane=plane;
-		this.controller= controller;
 	}
 
 	
 	public void run() {
-		TakeOFF takingOFF = new TakeOFF(plane, controller);
+		TakeOFF takingOFF = new TakeOFF(plane);
 		Fly flying = new Fly(plane);
-		Landing  landing = new Landing(plane, controller);
+		Landing  landing = new Landing(plane);
 		takingOFF.run();
 		flying.run();
 		landing.run();

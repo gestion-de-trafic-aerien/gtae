@@ -4,25 +4,20 @@ import java.util.Random;
 
 import data.Airport;
 import data.Plane;
-import dataEnum.AirportID;
 import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
 import dataEnum.Status;
-
 public class Landing {
 	Plane plane;
 	Airport desAirport;
-	Controller controller;
-
-	public Landing(Plane plane, Controller controller) {
+	public Landing(Plane plane) {
 		this.plane=plane;
 		this.desAirport=plane.getFlight().getDestination();
-		this.controller=controller;
 	}
 	
 	
 	public void run() {
-		RunwayID runway= controller.respondLanding(desAirport);
+		RunwayID runway= Main.controller.respondLanding(desAirport);
 		if(runway!=null) {
 			plane.getFlight().getDestination().setStatusRunway(runway, Status.OCCUPIED);
 			plane.setStatuts(FlightStatus.IS_LANDING);
@@ -32,6 +27,7 @@ public class Landing {
 				plane.setStatuts(FlightStatus.LANDED);
 				System.out.println("the Flight "+plane.getFlight().getFlightID()+" landed successfuly");
 				plane.getFlight().getDestination().setStatusRunway(runway, Status.FREE);
+				plane.setPosition(null);
 
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

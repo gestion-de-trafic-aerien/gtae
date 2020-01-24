@@ -11,16 +11,14 @@ import dataEnum.Status;
 public class TakeOFF {
 	Plane plane;
 	Airport srcAirport;
-	Controller controller;
 	
-	public TakeOFF(Plane plane, Controller controller) {
+	public TakeOFF(Plane plane) {
 		this.plane=plane;
 		this.srcAirport=plane.getFlight().getSource();
-		this.controller=controller;
 	}
 
 	public void run() {
-		RunwayID runway= controller.respondTakeOff(srcAirport);
+		RunwayID runway= Main.controller.respondTakeOff(srcAirport);
 		if(runway!=null) {
 			plane.getFlight().getSource().setStatusRunway(runway, Status.OCCUPIED);
 			plane.setStatuts(FlightStatus.IS_TAKING_OFF);
