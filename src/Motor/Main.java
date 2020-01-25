@@ -1,8 +1,10 @@
 package Motor;
 
+
+
 import javax.swing.JFrame;
 
-
+import gui.InformationPanel;
 import gui.Radar;
 public class Main {
 	 static Controller controller=new Controller();
@@ -12,20 +14,18 @@ public class Main {
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fenetre.setSize(1000,800);
 		
-		new Thread(new Simulator()).start();
-		
+	    fenetre.setLayout(null);		
 		radar=new Radar();
-		fenetre.setContentPane(radar);
+		InformationPanel info=new InformationPanel();
+		fenetre.getContentPane().add(radar);
+		fenetre.getContentPane().add(info);
+		fenetre.setVisible(true);
 		fenetre.setVisible(true);
 		fenetre.setLocationRelativeTo(null);
 		fenetre.setResizable(false);
 		fenetre.setAlwaysOnTop(true);
-			
-		//System.out.println(data.getWaitingPlanes());
-		//Simulator simulator= new Simulator(data, controller);
-		//simulator.run();
-		
-		
+		new Thread(new Simulator()).start();
+
 
 	    
 	}

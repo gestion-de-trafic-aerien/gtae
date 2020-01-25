@@ -3,22 +3,15 @@ import data.GlobaleData;
 import data.Plane;
 import java.util.Date;
 import java.util.Timer;
-
-
 public class Simulator implements Runnable  {
 	
 
 	
 	public static GlobaleData data;
-	//private FlightPanel flightPanel;
-	//private Animation animation;
-
 	public Simulator() {
 		super();
 		Simulator.data = new GlobaleData();
-		//this.flightPanel=new FlightPanel(data.getWaitingPlanes());
-		//this.animation=new Animation();
-		//animation.add(flightPanel);
+	
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -28,7 +21,6 @@ public class Simulator implements Runnable  {
 		timer.schedule(chrono, 1000, 1000);
 		Date date;
 		while(chrono.getHour()<24) {
-			
 			date=new Date(2020, 01, 21, chrono.getHour(), chrono.getMinute(),0);
 			System.out.println(date);
 			Main.radar.repaint();

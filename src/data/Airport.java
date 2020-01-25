@@ -42,10 +42,7 @@ public class Airport {
 	}
 	
 
-	@Override
-	public String toString() {
-		return "Airport [airportID=" + airportID + ", runways=" + runways + "]";
-	}
+	
 
 	public RunwayID freeRunway() {
 		Status status=null;
@@ -65,6 +62,8 @@ public class Airport {
 		}
 	}
 	
-	
+	public String toString() {
+		return airportID + ":" + runways;
+	}
 
 }

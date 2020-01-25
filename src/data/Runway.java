@@ -33,7 +33,7 @@ public class Runway {
 
 	@Override
 	public String toString() {
-		return "Runway [runwayID=" + runwayID + ", status=" + status + "]";
+		return runwayID + ": " + status ;
 	}
 	
 	
