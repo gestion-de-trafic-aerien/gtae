@@ -1,6 +1,4 @@
 package dataEnum;
-
-
 import data.Position;
 
 public enum AirportID {
@@ -18,7 +16,8 @@ public enum AirportID {
 	public Position getAirportPosition() {
 		return position;
 	}
-
+	
+	
 	
 	
 	

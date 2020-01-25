@@ -22,8 +22,6 @@ public class Fly {
 					Thread.sleep((long) (70000/plane.getSpeed()));
 				} catch (InterruptedException e) {}
 			}
-		}
-		
+		}		
 	}
-
 }

@@ -1,18 +1,19 @@
 package gui;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.Color;import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import Motor.Simulator;
 import data.Airport;
+import data.GlobaleData;
+import data.Plane;
 import dataEnum.AirportID;
 
 
@@ -20,90 +21,112 @@ import dataEnum.AirportID;
 public class InformationPanel extends JPanel {
 
 	public InformationPanel() {
-		this.setBackground(Color.white);
-		this.setLayout(new GridLayout(20,1));
+		this.setBackground(Color.green);
 		this.setLocation(700, 0);
-		this.setSize(300, 800);
-		this.setVisible(true);	
-		JLabel airportLabel = new JLabel("status of airports :");
-		airportLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+		this.setSize(500,800);
+		this.setVisible(true);
+		JLabel airportLabel = new JLabel("Status of airports :");
+		airportLabel.setFont(new Font("Lucida Grande", Font.BOLD, 15));
 		airportLabel.setBounds(200, 60, 100, 29);
 		airportLabel.setForeground(Color.BLACK);
-		JButton paris = new JButton("Paris Airport");
-		JButton algiers = new JButton("Algiers Airport");
-		JButton moscow = new JButton("Moscow Airport");
-		JButton brazilia = new JButton("Brazilia Airport");
-		JButton caneberra = new JButton("Canberra Airport");
-		JButton washington = new JButton("Washington Airport");
-		JTextField field=new JTextField();
+				
+		JTextField ALG=new JTextField();
+		JTextField PRS=new JTextField();
+		JTextField WDC=new JTextField();
+		JTextField CBR=new JTextField();
+		JTextField BRZ=new JTextField();
+		JTextField MSW=new JTextField();
+		
+		GlobaleData data = new GlobaleData();	
+		ArrayList<Plane> planesInFlight= data.getWaitingPlanes();
+		JComboBox<ArrayList<Plane>> planesInFlightList = new JComboBox<ArrayList<Plane>>();
+		planesInFlightList.setFont(new Font("FontAwesome", Font.BOLD, 12));
+		planesInFlightList.setMaximumRowCount(10);
+		planesInFlightList.setForeground(Color.WHITE);
+		planesInFlightList.setBackground(Color.LIGHT_GRAY);
+		planesInFlightList.addItem(planesInFlight);
+		
+		final JLabel label = new JLabel();
+		label.setHorizontalAlignment(JLabel.CENTER);  
+		JButton show=new JButton("Show");
+		
 		this.add(airportLabel);
-		this.add(algiers);
-		this.add(paris);
-		this.add(moscow);
-		this.add(brazilia);
-		this.add(washington);
-		this.add(caneberra);
-		this.add(field);
-		algiers.addActionListener(new ActionListener() {
+		this.add(ALG);
+		this.add(PRS);
+		this.add(WDC);
+		this.add(CBR);
+		this.add(BRZ);
+		this.add(MSW);
+		this.add(planesInFlightList);
+		this.add(label);
+		this.add(show);
+		
+		ALG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for(Airport airport : Simulator.data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.ALGIERS)){
-						field.setText(airport.toString());
+						ALG.setText(airport.toString());
 					}
-				}
-				
+				}				
 			}
 		});
-		washington.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				for(Airport airport : Simulator.data.getAirports() ) {
-					if(airport.getAirportID().equals(AirportID.WASHINGTON)){
-						field.setText(airport.toString());
-					}
-				}
-				
-			}
-		});
-		paris.addActionListener(new ActionListener() {
+		PRS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for(Airport airport : Simulator.data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.PARIS)){
-						field.setText(airport.toString());
+						PRS.setText(airport.toString());
 					}
-				}
-				
+				}				
 			}
 		});
-		caneberra.addActionListener(new ActionListener() {
+		WDC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for(Airport airport : Simulator.data.getAirports() ) {
-					if(airport.getAirportID().equals(AirportID.CANBERRA)){
-						field.setText(airport.toString());
+					if(airport.getAirportID().equals(AirportID.WASHINGTON)){
+						WDC.setText(airport.toString());
 					}
-				}
-				
+				}				
 			}
 		});
-		brazilia.addActionListener(new ActionListener() {
+		BRZ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for(Airport airport : Simulator.data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.BRAZILIA)){
-						field.setText(airport.toString());
+						BRZ.setText(airport.toString());
 					}
 				}
 				
 			}
 		});
-		moscow.addActionListener(new ActionListener() {
+		CBR.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for(Airport airport : Simulator.data.getAirports() ) {
+					if(airport.getAirportID().equals(AirportID.CANBERRA)){
+						CBR.setText(airport.toString());
+					}
+				}
+				
+			}
+		});
+		MSW.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for(Airport airport : Simulator.data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.MOSCOW)){
-						field.setText(airport.toString());
+						MSW.setText(airport.toString());
 						
 					}
 				}
 				
 			}
 		});
+		
+		show.addActionListener(new ActionListener() {  
+			public void actionPerformed(ActionEvent e) {       
+				String data = "Informations of the flight: "+ planesInFlightList.getSelectedItem().toString();  
+	        	label.setText(data);  
+	        }  
+		});
+	        
 	}
 }
+

@@ -23,7 +23,7 @@ public class Simulator implements Runnable  {
 		while(chrono.getHour()<24) {
 			date=new Date(2020, 01, 21, chrono.getHour(), chrono.getMinute(),0);
 			System.out.println(date);
-			Main.radar.repaint();
+			//Main.radar.repaint();
 			for(Plane plane : data.getWaitingPlanes()) {
 				if(plane.getFlight().getDepartureDate().equals(date)) {
 					new Thread(new SimulateFlight(plane)).start();

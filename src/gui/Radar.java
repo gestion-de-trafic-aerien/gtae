@@ -3,22 +3,20 @@ package gui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-
 import Motor.Simulator;
 import data.Airport;
 import data.Plane;
 import dataEnum.FlightStatus;
 
 @SuppressWarnings("serial")
-public class Radar extends JPanel {
+public class Radar extends JPanel implements Runnable {
 	public Radar() {
 		super();	
 		this.setBackground(Color.black);
 		this.setLocation(0, 0);
-		this.setSize(700, 800);
+		this.setSize(700, 500);
 		this.setVisible(true);
 	}
 	
@@ -53,6 +51,12 @@ public class Radar extends JPanel {
 
 			}
 		}
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
