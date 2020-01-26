@@ -1,5 +1,10 @@
 package dataEnum;
 
+/*
+ * An enumerated type class
+ * It defines for every airport the number of every runway it has
+ */
+
 public enum RunwayID {
 	R1("ALGIERS"),R2("ALGIERS"),R3("ALGIERS"),
 	R4("PARIS"),R5("PARIS"),R6("PARIS"),

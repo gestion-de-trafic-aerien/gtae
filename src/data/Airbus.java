@@ -1,5 +1,9 @@
 package data;
 
+/*
+ * A Class that defines the structure of a specific type of airplanes
+ *
+ */
 
 public class Airbus extends Plane {
 	private int speed;

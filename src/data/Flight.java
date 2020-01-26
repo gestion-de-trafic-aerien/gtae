@@ -3,6 +3,16 @@
  */
 package data;
 
+/*
+ * Flight is a class in which are contained informations relative to a flight.
+ * ID
+ * Date of departure in this format: Date(int year, int month, int date, int hrs, int min, int sec)
+ * Departure airport
+ * Destination airport
+ * Trajectory: a list of 2D points generated randomly.
+ * 
+ */
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -61,6 +71,11 @@ public class Flight {
 	public String getFlightID() {
 		return flightID;
 	}
+	
+	/*
+	 * generateFlighID is a String method that generates random IDs for different flights
+	 * during the simulation
+	 */
 	
 	public String generateFlightID() {
 		String flightID="";

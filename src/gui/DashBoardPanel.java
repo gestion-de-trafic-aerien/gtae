@@ -1,5 +1,11 @@
 package gui;
 
+/*
+ * This panel dedicated to the various graphic maneuvers 
+ * for controlling and managing incidents that may occur during flight
+ * These incidents are: lack of fuel, collisions
+ */
+
 import java.awt.Color;
 
 import javax.swing.JPanel;

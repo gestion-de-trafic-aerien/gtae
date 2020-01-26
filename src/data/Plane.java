@@ -1,5 +1,21 @@
 package data;
 
+/*
+ * Plane is represented by:
+ * an ID that is generated randomly
+ * a 2D position (x, y). A postion of a plane changes depending on the trajectory it takes
+ * Status: 
+ * 	EMERGENCY_LANDING: in case of lack of fuel
+ *  IS_LANDING: in process of landing
+ *  WAITING_FOR_LANDING: the plane waits for a free runway
+ *  WAITING_FOR_TAKING_OFF: the plane waits for a permission to take off
+ *  IS_TAKING_OFF: once the permission received, the plane takes off
+ *  FLYING: in flight
+ *  LANDED
+ *  AUTHORIZED_TO_LAND: a plane is authorized to land only if there is a free runway, at least, in the destination airport
+ *  AUTHORIZED_TO_TAKEOFF
+}
+ */
 
 import java.util.Random;
 
@@ -30,7 +46,8 @@ public abstract class Plane {
 	public abstract void setFuel();
 	public abstract int getFuelConsumption();
 
-	public int generatePlaneID() {
+	/*This method generates randomly plane IDs*/
+	 public int generatePlaneID() {	 
 		// TODO Auto-generated method stub
 		Random random=new Random();
 		return random.nextInt(10000);

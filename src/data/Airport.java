@@ -9,8 +9,19 @@ import dataEnum.AirportID;
 import dataEnum.RunwayID;
 import dataEnum.Status;
 
+/*
+ * This class defines the structure of an object Airport, 
+ * which is represented by an ID, and an arraylist of runways.
+ * Our main airport is: ALGIERS. This project is focused on managing 
+ * our main airport and controlling graphically 5 other airports:
+ * BRAZILIA, WASHINGTON, PARIS, MOSCOW, CANBERRA
+ */
+
 
 public class Airport {
+	/*
+	 * Constructor
+	 */
 
 	private  AirportID airportID;
 	private  ArrayList  <Runway> runways;
@@ -43,7 +54,10 @@ public class Airport {
 	
 
 	
-
+	/*
+	 * freeRunway is a function that returns an object RunwayID: the ID of a free runway
+	 * in a specified Airport
+	 */
 	public RunwayID freeRunway() {
 		Status status=null;
 		for(Runway runway1 : runways) {
@@ -54,6 +68,12 @@ public class Airport {
 		}
 		return null;
 	}
+	
+	/*
+	 * setStatusRunway is a void function that takes as parameters: a runway ID and the status of the airport
+	 * The status of an airport has two values: FREE, OCCUPIED.
+	 * An airport is free when it has, at least, one runway free. Occupied, otherwise.
+	 */
 	public void setStatusRunway(RunwayID id, Status status) {
 		for(Runway runway1 : runways) {
 			if(runway1.getRunwayID().equals(id)){

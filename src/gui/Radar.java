@@ -1,5 +1,10 @@
 package gui;
 
+/*
+ * This class is an overview of the six airports that make up our environment
+ * By this radar, we can check and see flights departing from different airports 
+ * and arriving to different other airports
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;

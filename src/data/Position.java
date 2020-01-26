@@ -1,5 +1,9 @@
 package data;
 
+/*Our environnement is a 2D one. The position of our items is represented by
+ * X and Y: integers.
+ */
+
 
 public class Position {
 	private int x;
@@ -32,6 +36,10 @@ public class Position {
 	public void setY(int y) {
 		this.y = y;
 	}
+	
+	/*This method calculates the distance between 
+	 * the position of the plane and the destination airport
+	 */
 	public Double getDistance(Position destinationPosition) {		
 		double dx = (x - destinationPosition.getX());
 		double dy = (y - destinationPosition.getY());

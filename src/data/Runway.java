@@ -3,6 +3,12 @@
  */
 package data;
 
+/*Every airport we have in our environnement, has 3 runways
+ * Take-offs and landings are determined depending on the status of the runways
+ * of the destination airport
+ * A runway has two status: FREE, OCCUPIED
+ */
+
 
 import dataEnum.RunwayID;
 import dataEnum.Status;

@@ -1,5 +1,10 @@
 package data;
 
+/*
+ * The database of the global informations which are used by the Simulator and the Controller
+ */
+
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -79,8 +84,11 @@ public class GlobaleData implements ControllerDataInterface {
 	public void deleteWaitingPlane(Plane plane) {
 		waitingPlanes.remove(plane);
 	}
-	// generer des flight automatiquement
-
+		
+	/*
+	 * This method below generates randomly flights during a whole day (24h)
+	 * insured by a specific type of airplanes: Airbus.
+	 */
 	@SuppressWarnings("deprecation")
 	public void GenerateFlights() {
 		Airport source=null;

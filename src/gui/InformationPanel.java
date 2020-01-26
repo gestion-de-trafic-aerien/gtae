@@ -1,20 +1,24 @@
 package gui;
 
-import java.awt.Color;import java.awt.Font;
+/*
+ * This panel dedicated to the informations relative to various flights:
+ * IDs and time informations
+ * Airport status
+ */
+
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import Motor.ControllerDataInterface;
-import Motor.Simulator;
 import data.Airport;
-import data.GlobaleData;
 import data.Plane;
 import dataEnum.AirportID;
 
@@ -22,10 +26,7 @@ import dataEnum.AirportID;
 @SuppressWarnings("serial")
 public class InformationPanel extends JPanel {
 
-	private ControllerDataInterface data;
-
 	public InformationPanel(ControllerDataInterface data) {
-		this.data=data;
 		this.setBackground(Color.green);
 		this.setLocation(700, 0);
 		this.setSize(500,800);
