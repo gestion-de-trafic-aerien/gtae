@@ -8,7 +8,7 @@ public class Airbus extends Plane {
 	public Airbus( Flight flight) {
 		super( flight);	
 		this.speed=700;
-		this.fuel=1000;
+		this.fuel=300;
 		this.fuelConsumption=1;
 	}
 
@@ -32,9 +32,9 @@ public class Airbus extends Plane {
 	}
 
 	@Override
-	public void setFuel(int fuel) {
+	public void setFuel() {
 		// TODO Auto-generated method stub
-		this.fuel=fuel;
+		this.fuel-=fuelConsumption;
 	}
 
 	@Override

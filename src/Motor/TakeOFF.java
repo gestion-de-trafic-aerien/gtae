@@ -18,11 +18,9 @@ public class TakeOFF {
 	}
 
 	public void run() {
-		RunwayID runway= Main.controller.respondTakeOff(srcAirport);
-		if(runway!=null) {
-			plane.getFlight().getSource().setStatusRunway(runway, Status.OCCUPIED);
+		RunwayID runway= Main.controller.respondTakeOff(plane);
+		if(plane.getStatuts().equals(FlightStatus.AUTHORIZED_TO_TAKEOFF)) {
 			plane.setStatuts(FlightStatus.IS_TAKING_OFF);
-			//System.out.println(plane.getFlight().getSource().getRunways().toString());
 			System.out.println("the Flight "+plane.getFlight().getFlightID()+" process to taking-off"+runway.name());
 			try {
 				Thread.sleep(3000);

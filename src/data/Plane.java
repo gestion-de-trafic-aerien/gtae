@@ -27,7 +27,7 @@ public abstract class Plane {
 	public abstract double getSpeed();
 	public abstract void setSpeed(int speed);
 	public abstract int getFuel();
-	public abstract void setFuel(int fuel);
+	public abstract void setFuel();
 	public abstract int getFuelConsumption();
 
 	public int generatePlaneID() {

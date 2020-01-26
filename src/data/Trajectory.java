@@ -8,9 +8,9 @@ public class Trajectory {
 	
 	private ArrayList<Position> points; 
 	private int altitude;
-	private AirportID source;
-	private AirportID destination;
-	public Trajectory(AirportID source, AirportID destination) {
+	private Position source;
+	private Position destination;
+	public Trajectory(Position source, Position destination) {
 		this.source = source;
 		this.destination = destination;
 		points=new ArrayList<>();
@@ -34,8 +34,8 @@ public class Trajectory {
 	}
 	
 	public double distance(){
-		Position sourcePosition =  this.source.getAirportPosition();
-		Position destinationPosition = this.destination.getAirportPosition();		
+		Position sourcePosition =  this.source;
+		Position destinationPosition = this.destination;		
 		double dx = (sourcePosition.getX() - destinationPosition.getX());
 		double dy = (sourcePosition.getY() - destinationPosition.getY());
 		double distance = Math.sqrt(dx*dx + dy*dy);
@@ -49,10 +49,10 @@ public class Trajectory {
 		// TODO Auto-generated method stub
 		int xA, xB, yA, yB ,x, y;
 		double distance=distance();
-		xA = this.source.getAirportPosition().getX();
-		yA = this.source.getAirportPosition().getY();		
-		xB = this.destination.getAirportPosition().getX();
-		yB = this.destination.getAirportPosition().getY();
+		xA = this.source.getX();
+		yA = this.source.getY();		
+		xB = this.destination.getX();
+		yB = this.destination.getY();
 		for(int i=0;i<distance;i++) {
 			x=(int) (xA+(xB-xA)*(i/distance));
 			y=(int) (yA+(yB-yA)*(i/distance));

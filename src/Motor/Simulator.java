@@ -6,11 +6,10 @@ import java.util.Timer;
 public class Simulator implements Runnable  {
 	
 
-	
-	public static GlobaleData data;
-	public Simulator() {
+	private GlobaleData data;
+	public Simulator(GlobaleData data) {
 		super();
-		Simulator.data = new GlobaleData();
+		this.data = data;
 	
 	}
 	
@@ -23,7 +22,7 @@ public class Simulator implements Runnable  {
 		while(chrono.getHour()<24) {
 			date=new Date(2020, 01, 21, chrono.getHour(), chrono.getMinute(),0);
 			System.out.println(date);
-			//Main.radar.repaint();
+			Main.radar.repaint();
 			for(Plane plane : data.getWaitingPlanes()) {
 				if(plane.getFlight().getDepartureDate().equals(date)) {
 					new Thread(new SimulateFlight(plane)).start();
@@ -36,8 +35,7 @@ public class Simulator implements Runnable  {
 				}
 				
 			}
-			//flightPanel.setWaitingPlanes(data.getWaitingPlanes());
-			//flightPanel.repaint();
+			
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

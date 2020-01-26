@@ -3,11 +3,13 @@ package data;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+
+import Motor.ControllerDataInterface;
 import dataEnum.AirportID;
 import dataEnum.RunwayID;
 
 
-public class GlobaleData {
+public class GlobaleData implements ControllerDataInterface {
 	private ArrayList<Plane> waitingPlanes;
 	private ArrayList<Airport> airports;
 

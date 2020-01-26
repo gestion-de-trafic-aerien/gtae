@@ -2,9 +2,9 @@ package Motor;
 
 import java.util.ArrayList;
 
-
 import data.Plane;
 import data.Position;
+import dataEnum.FlightStatus;
 public class Fly {
 	Plane plane;
 	public Fly(Plane plane) {
@@ -17,7 +17,12 @@ public class Fly {
 		if(trajectory!=null) {
 			for (Position pos : trajectory) {
 				plane.setPosition(pos);
-				//System.out.println("flight "+plane.getFlight().getFlightID()+" "+plane.getStatuts()+" "+plane.getPosition().toString());
+				plane.setFuel();
+				if(plane.getFuel()<200 && !plane.getStatuts().equals(FlightStatus.EMERGENCY_LANDING)) {
+					Main.controller.emergencyLanding(plane);
+					System.out.println("emergency landing !!!");
+					break;
+				}
 				try {
 					Thread.sleep((long) (70000/plane.getSpeed()));
 				} catch (InterruptedException e) {}

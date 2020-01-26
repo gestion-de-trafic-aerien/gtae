@@ -17,9 +17,8 @@ public class Landing {
 	
 	
 	public void run() {
-		RunwayID runway= Main.controller.respondLanding(desAirport);
-		if(runway!=null) {
-			plane.getFlight().getDestination().setStatusRunway(runway, Status.OCCUPIED);
+		RunwayID runway= Main.controller.respondLanding(plane);
+		if(plane.getStatuts().equals(FlightStatus.AUTHORIZED_TO_LAND)) {
 			plane.setStatuts(FlightStatus.IS_LANDING);
 			System.out.println("the flight "+plane.getFlight().getFlightID()+" process to landing on "+runway.name());
 			try {

@@ -27,7 +27,7 @@ public class Flight {
 		this.departureDate = departureDate;
 		this.source = source;
 		this.destination = destination;
-		trajectory=new Trajectory(source.getAirportID(), destination.getAirportID());
+		trajectory=new Trajectory(source.getAirportPosition(), destination.getAirportPosition());
 	}
 
 	public ArrayList <Position> getTrajectory() {
@@ -76,6 +76,10 @@ public class Flight {
 	}
 
 	
+	public void setTrajectory(Trajectory trajectory) {
+		this.trajectory = trajectory;
+	}
+
 	@Override
 	public String toString() {
 		return "Flight [flightID=" + flightID + ", departureDate=" + departureDate

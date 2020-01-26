@@ -1,19 +1,24 @@
 package Motor;
 
 import data.Airport;
+import data.Plane;
 import data.Trajectory;
+import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
-public class Controller {
+import dataEnum.Status;
+public class Controller  {
 	
-	
-	public Controller() {
-
+	private ControllerDataInterface data;
+	public Controller(ControllerDataInterface data) {
+		this.data=data;
 	}
 	
-	public RunwayID respondTakeOff (Airport sourceAirport) {
+	public RunwayID respondTakeOff (Plane plane) {
 		RunwayID id;
-		id=sourceAirport.freeRunway();
+		id=plane.getFlight().getSource().freeRunway();
 		if(id!=null) {
+			plane.setStatuts(FlightStatus.AUTHORIZED_TO_TAKEOFF);
+			plane.getFlight().getSource().setStatusRunway(id, Status.OCCUPIED);
 			return id;
 		}
 		else {
@@ -22,10 +27,12 @@ public class Controller {
 		}
 	}
 	
-	public RunwayID respondLanding (Airport destinationAirport) {
+	public RunwayID respondLanding (Plane plane) {
 		RunwayID id;
-		id=destinationAirport.freeRunway();
+		id=plane.getFlight().getDestination().freeRunway();
 		if(id!=null) {
+			plane.setStatuts(FlightStatus.AUTHORIZED_TO_LAND);
+			plane.getFlight().getDestination().setStatusRunway(id, Status.OCCUPIED);
 			return id;
 		}
 		return null;
@@ -35,6 +42,26 @@ public class Controller {
 		trajectory.setAltitude(altitude-400);
 		return trajectory;
 	}
+
+	public void emergencyLanding(Plane plane) {
+		plane.setStatuts(FlightStatus.EMERGENCY_LANDING);
+		Airport emergencyAirport=null;
+		Double distance2=null, distance= 10000.0;
+		for(Airport airport : data.getAirports()) {
+			distance2= plane.getPosition().getDistance(airport.getAirportPosition());
+			if(distance2<distance) {
+				distance=distance2;
+				emergencyAirport=airport;
+			}
+		}
+		plane.getFlight().setDestination(emergencyAirport);
+		System.out.println("emergency: "+emergencyAirport.getAirportID());
+		plane.getFlight().setTrajectory(new Trajectory(plane.getPosition(),emergencyAirport.getAirportPosition()));
+		
+	}
+
+	
+
 	
 	
 	

@@ -29,8 +29,8 @@ public class Boeing extends Plane {
 	}
 
 	@Override
-	public void setFuel(int fuel) {
-				this.fuel=fuel;
+	public void setFuel() {
+				this.fuel-=fuelConsumption;
 	}
 
 	@Override

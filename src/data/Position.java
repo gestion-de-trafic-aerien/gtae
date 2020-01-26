@@ -32,6 +32,12 @@ public class Position {
 	public void setY(int y) {
 		this.y = y;
 	}
+	public Double getDistance(Position destinationPosition) {		
+		double dx = (x - destinationPosition.getX());
+		double dy = (y - destinationPosition.getY());
+		double distance = Math.sqrt(dx*dx + dy*dy);
+		return distance;
+	}
 
 
 	@Override

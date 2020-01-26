@@ -10,6 +10,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Motor.ControllerDataInterface;
 import Motor.Simulator;
 import data.Airport;
 import data.GlobaleData;
@@ -20,7 +22,10 @@ import dataEnum.AirportID;
 @SuppressWarnings("serial")
 public class InformationPanel extends JPanel {
 
-	public InformationPanel() {
+	private ControllerDataInterface data;
+
+	public InformationPanel(ControllerDataInterface data) {
+		this.data=data;
 		this.setBackground(Color.green);
 		this.setLocation(700, 0);
 		this.setSize(500,800);
@@ -37,7 +42,6 @@ public class InformationPanel extends JPanel {
 		JTextField BRZ=new JTextField();
 		JTextField MSW=new JTextField();
 		
-		GlobaleData data = new GlobaleData();	
 		ArrayList<Plane> planesInFlight= data.getWaitingPlanes();
 		JComboBox<ArrayList<Plane>> planesInFlightList = new JComboBox<ArrayList<Plane>>();
 		planesInFlightList.setFont(new Font("FontAwesome", Font.BOLD, 12));
@@ -63,7 +67,7 @@ public class InformationPanel extends JPanel {
 		
 		ALG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(Airport airport : Simulator.data.getAirports() ) {
+				for(Airport airport : data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.ALGIERS)){
 						ALG.setText(airport.toString());
 					}
@@ -72,7 +76,7 @@ public class InformationPanel extends JPanel {
 		});
 		PRS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(Airport airport : Simulator.data.getAirports() ) {
+				for(Airport airport : data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.PARIS)){
 						PRS.setText(airport.toString());
 					}
@@ -81,7 +85,7 @@ public class InformationPanel extends JPanel {
 		});
 		WDC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(Airport airport : Simulator.data.getAirports() ) {
+				for(Airport airport : data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.WASHINGTON)){
 						WDC.setText(airport.toString());
 					}
@@ -90,7 +94,7 @@ public class InformationPanel extends JPanel {
 		});
 		BRZ.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(Airport airport : Simulator.data.getAirports() ) {
+				for(Airport airport : data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.BRAZILIA)){
 						BRZ.setText(airport.toString());
 					}
@@ -100,7 +104,7 @@ public class InformationPanel extends JPanel {
 		});
 		CBR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(Airport airport : Simulator.data.getAirports() ) {
+				for(Airport airport : data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.CANBERRA)){
 						CBR.setText(airport.toString());
 					}
@@ -110,7 +114,7 @@ public class InformationPanel extends JPanel {
 		});
 		MSW.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(Airport airport : Simulator.data.getAirports() ) {
+				for(Airport airport : data.getAirports() ) {
 					if(airport.getAirportID().equals(AirportID.MOSCOW)){
 						MSW.setText(airport.toString());
 						
