@@ -6,7 +6,7 @@ import data.Trajectory;
 import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
 import dataEnum.Status;
-public class Controller  {
+public class Controller implements Runnable {
 	
 	private ControllerDataInterface data;
 	public Controller(ControllerDataInterface data) {
@@ -58,6 +58,11 @@ public class Controller  {
 		System.out.println("emergency: "+emergencyAirport.getAirportID());
 		plane.getFlight().setTrajectory(new Trajectory(plane.getPosition(),emergencyAirport.getAirportPosition()));
 		
+	}
+
+	
+	public void run() {
+		//TODO: check the positions every second and prevent a collision
 	}
 
 	

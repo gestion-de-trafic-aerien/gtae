@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
-import dataEnum.AirportID;
-
 
 public class Flight {
 	

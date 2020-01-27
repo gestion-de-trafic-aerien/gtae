@@ -41,22 +41,19 @@ public class Radar extends JPanel implements Runnable {
 		for(Plane plane : data.getWaitingPlanes()){
 			
 			if(plane.getPosition()!=null) {
-				g2.drawString(plane.getFlight().getFlightID(), plane.getPosition().getX(), plane.getPosition().getY());
 				
 				if(plane.getStatuts().equals(FlightStatus.FLYING)) {
 					g2.setColor(Color.green);
-					g2.fillOval(plane.getPosition().getX(),plane.getPosition().getY(), 10, 10);
 				}
 				if(plane.getStatuts().equals(FlightStatus.IS_TAKING_OFF)) {
 					g2.setColor(Color.blue);
-					g2.fillOval(plane.getPosition().getX(),plane.getPosition().getY(), 3, 3);
 				}if(plane.getStatuts().equals(FlightStatus.IS_LANDING)) {
-					g2.fillOval(plane.getPosition().getX(),plane.getPosition().getY(), 3, 3);
 					g2.setColor(Color.ORANGE);
 				}if(plane.getStatuts().equals(FlightStatus.EMERGENCY_LANDING)) {
-					g2.fillOval(plane.getPosition().getX(),plane.getPosition().getY(), 3, 3);
 					g2.setColor(Color.red);
 				}
+				g2.drawString(plane.getFlight().getFlightID(), plane.getPosition().getX(), plane.getPosition().getY());
+				g2.fillOval(plane.getPosition().getX(),plane.getPosition().getY(), 10, 10);
 
 			}
 		}
