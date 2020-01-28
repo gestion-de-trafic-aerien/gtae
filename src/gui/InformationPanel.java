@@ -8,11 +8,13 @@ package gui;
 
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 @SuppressWarnings("serial")
 public class InformationPanel extends JPanel {
@@ -29,16 +31,19 @@ public class InformationPanel extends JPanel {
 	private JLabel CBRlabel;
 	private JLabel BRZlabel;
 	private JLabel MSWlabel;
+	private JLabel airportLabel2;
 
 	public InformationPanel() {
-		airportLabel= new JLabel("Status of airports :");
-		ALGLabel=new JLabel("ALGIERS airport :");
-		PRSLabel=new JLabel("PARIS airport :");
-		WDClabel=new JLabel("WASHINGTON airport :");
-		CBRlabel=new JLabel("CANEBERRA airport :");
-		BRZlabel=new JLabel("BRAZILIA airport :");
-		MSWlabel=new JLabel("MOSCOW airport :");
+		airportLabel= new JLabel("                                   Airports ");
+		airportLabel2=new JLabel("status");
+		ALGLabel=new JLabel("     ALGIERS airport :");
+		PRSLabel=new JLabel("     PARIS airport :");
+		WDClabel=new JLabel("     WASHINGTON airport :");
+		CBRlabel=new JLabel("     CANEBERRA airport :");
+		BRZlabel=new JLabel("     BRAZILIA airport :");
+		MSWlabel=new JLabel("     MOSCOW airport :");
 		ALG=new JTextField();
+		ALG.setSize(400, 28);
 		PRS=new JTextField();
 		WDC=new JTextField();
 		CBR=new JTextField();
@@ -96,17 +101,23 @@ public class InformationPanel extends JPanel {
 
 	public void setLabelCaracteristics() {
 		this.airportLabel.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		this.airportLabel.setBackground(Color.BLACK);
 		this.airportLabel.setBounds(200, 60, 100, 29);
-		this.airportLabel.setForeground(Color.BLACK);		
+		this.airportLabel.setForeground(Color.BLACK);	
+		this.airportLabel2.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		this.airportLabel2.setBounds(200, 60, 100, 29);
+		this.airportLabel2.setForeground(Color.BLACK);	
+		
 	}
 	public void setPanelCaracteristics(){
-		this.setBackground(Color.green);
+		this.setBackground(Color.GREEN);
 		this.setLocation(700, 0);
 		this.setSize(500,200);
 		this.setVisible(true);
-		this.setLayout(new GridLayout(7,2));
+		GridLayout gl=new GridLayout(7, 2);
+		this.setLayout(gl);
 		this.add(airportLabel);
-		this.add( new JLabel());
+		this.add(airportLabel2);
 		this.add(ALGLabel);
 		this.add(ALG);
 
