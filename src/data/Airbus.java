@@ -12,7 +12,7 @@ public class Airbus extends Plane {
 	public Airbus( Flight flight) {
 		super( flight);	
 		this.speed=700;
-		this.fuel=300;
+		this.fuel=1000;
 		this.fuelConsumption=1;
 	}
 
