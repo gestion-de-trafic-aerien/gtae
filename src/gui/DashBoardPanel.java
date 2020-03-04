@@ -53,6 +53,7 @@ public  class DashBoardPanel extends JPanel {
 			this.add(button[i]);
 			label[i].setVisible(false);
 			button[i].setVisible(false);
+			label[i].setBackground(Color.GREEN);
 		}
 		JLabel lab= new JLabel("Dashboard");
 		lab.setVisible(false);

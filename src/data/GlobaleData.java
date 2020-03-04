@@ -94,7 +94,7 @@ public class GlobaleData implements ControllerDataInterface {
 		Airport source=null;
 		Airport destination=null;
 		Date date;
-		for(int i=0;i<1440;i+=10) {
+		for(int i=0;i<1440;i+=5) {
 			int heure=i/60;
 			int min=i%60;
 			date=new Date(2020, 01, 21, heure, min,0);
