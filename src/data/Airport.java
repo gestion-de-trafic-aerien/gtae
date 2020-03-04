@@ -81,6 +81,17 @@ public class Airport {
 			}
 		}
 	}
+	public Status getStatusRunway(RunwayID id) {
+		Status status = null;
+		
+		for(Runway runway1 : runways) {
+			if(runway1.getRunwayID().equals(id)){
+				status=runway1.getStatus();
+			}
+		}
+		return status;
+		
+	}
 	
 	public String toString() {
 		return airportID + ":" + runways;

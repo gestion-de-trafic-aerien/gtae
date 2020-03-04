@@ -10,6 +10,7 @@ import gui.Radar;
 public class Main {
 	public static Controller controller;
 	public static Radar radar;
+	public static DashBoardPanel dashboard;
 	public static InformationPanel informationPanel;
 	public static void main(String[] args) {
 		GlobaleData data=new GlobaleData();
@@ -22,7 +23,7 @@ public class Main {
 		fenetre.setAlwaysOnTop(true);
 		radar = new Radar(data);
 		informationPanel=new InformationPanel();
-		DashBoardPanel dashboard = new DashBoardPanel();
+		dashboard = new DashBoardPanel();
 		fenetre.getContentPane().add(dashboard);
 		fenetre.getContentPane().add(radar);
 		fenetre.getContentPane().add(informationPanel);
