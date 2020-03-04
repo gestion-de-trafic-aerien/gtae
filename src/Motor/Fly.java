@@ -25,6 +25,7 @@ public class Fly {
 					plane.getFlight().getTrajectory().setAltitude(altitude);
 					System.out.println("the flight "+plane.getFlight().getFlightID()+" changed it's altitude to "+altitude );
 				}
+				pos.setOccupied(true);
 				plane.setPosition(pos);
 				plane.setFuel();
 				if(plane.getFuel()<200 && !plane.getStatuts().equals(FlightStatus.EMERGENCY_LANDING)) {

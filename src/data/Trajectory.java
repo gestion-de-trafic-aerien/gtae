@@ -7,6 +7,8 @@ package data;
 
 import java.util.ArrayList;
 
+import Motor.Main;
+
 public class Trajectory {
 	
 	private ArrayList<Position> points; 
@@ -68,7 +70,7 @@ public class Trajectory {
 		for(int i=0;i<distance;i+=2) {
 			x=(int) (xA+(xB-xA)*(i/distance));
 			y=(int) (yA+(yB-yA)*(i/distance));
-			points.add(new Position(x, y));
+			points.add(Main.plan.getPos(x, y));
 			
 		}
 		

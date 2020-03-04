@@ -3,6 +3,8 @@ package Motor;
 import javax.swing.JFrame;
 
 import data.GlobaleData;
+import data.Plane;
+import dataEnum.Plan;
 import gui.DashBoardPanel;
 import gui.InformationPanel;
 import gui.Radar;
@@ -12,7 +14,9 @@ public class Main {
 	public static Radar radar;
 	public static DashBoardPanel dashboard;
 	public static InformationPanel informationPanel;
+	public static Plan plan;
 	public static void main(String[] args) {
+		plan=new Plan();
 		GlobaleData data=new GlobaleData();
 		JFrame fenetre =new JFrame("Simulation of Air Trafic");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
