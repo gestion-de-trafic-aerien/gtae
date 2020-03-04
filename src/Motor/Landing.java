@@ -22,7 +22,7 @@ public class Landing {
 		RunwayID runway;
 		if(desAirport.getAirportID().equals(AirportID.ALGIERS)){
 			DashBoardPanel.buttonNumber++;
-			DashBoardPanel.number=DashBoardPanel.buttonNumber%4;
+			DashBoardPanel.number=DashBoardPanel.buttonNumber%5;
 			runway= Main.dashboard.respondLanding(plane);
 		}
 		else {

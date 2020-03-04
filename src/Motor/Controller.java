@@ -63,6 +63,7 @@ public class Controller implements Runnable {
 	
 	public void run() {
 		//TODO: check the positions every second and prevent a collision
+		
 	}
 
 	

@@ -14,6 +14,7 @@ public class Trajectory {
 	private Position source;
 	private Position destination;
 	public Trajectory(Position source, Position destination) {
+		this.altitude=10000;
 		this.source = source;
 		this.destination = destination;
 		points=new ArrayList<>();
@@ -64,7 +65,7 @@ public class Trajectory {
 		yA = this.source.getY();		
 		xB = this.destination.getX();
 		yB = this.destination.getY();
-		for(int i=0;i<distance;i++) {
+		for(int i=0;i<distance;i+=2) {
 			x=(int) (xA+(xB-xA)*(i/distance));
 			y=(int) (yA+(yB-yA)*(i/distance));
 			points.add(new Position(x, y));

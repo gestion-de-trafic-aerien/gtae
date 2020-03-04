@@ -22,7 +22,7 @@ public class TakeOFF {
 		RunwayID runway;
 		if(srcAirport.getAirportID().equals(AirportID.ALGIERS)){
 			DashBoardPanel.buttonNumber++;
-			DashBoardPanel.number=DashBoardPanel.buttonNumber%4;
+			DashBoardPanel.number=DashBoardPanel.buttonNumber%5;
 			runway= Main.dashboard.respondTakeOff(plane);
 
 		}

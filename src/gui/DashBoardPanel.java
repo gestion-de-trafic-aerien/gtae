@@ -40,13 +40,13 @@ public  class DashBoardPanel extends JPanel {
 		this.setVisible(true);
 		
 
-		GridLayout gl=new GridLayout(5, 2);
+		GridLayout gl=new GridLayout(6, 2);
 		this.setLayout(gl);
 		
-		label= new JLabel[4];
-		button= new JButton[4];
+		label= new JLabel[5];
+		button= new JButton[5];
 		
-		for(int i=0;i<4;i++) {
+		for(int i=0;i<5;i++) {
 			label[i]=new JLabel();
 			button[i]=new JButton("authorize");
 			this.add(label[i]);

@@ -26,6 +26,7 @@ public class Flight {
 	private Airport destination;
 	private Trajectory trajectory;
 	
+	
 	/*
 	 * Constructors
 	 */
@@ -38,7 +39,11 @@ public class Flight {
 		trajectory=new Trajectory(source.getAirportPosition(), destination.getAirportPosition());
 	}
 
-	public ArrayList <Position> getTrajectory() {
+	public Trajectory getTrajectory() {
+		return trajectory;
+	}
+
+	public ArrayList <Position> getTrajectoryList() {
 		return trajectory.getTrajectory();
 	}
 
