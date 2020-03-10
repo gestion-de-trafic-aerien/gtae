@@ -34,7 +34,7 @@ public class Fly {
 					break;
 				}
 				try {
-					Thread.sleep((long) (70000/plane.getSpeed()));
+					Thread.sleep((long) (90000/plane.getSpeed()));
 					pos.setOccupied(false);
 				} catch (InterruptedException e) {}
 			}
