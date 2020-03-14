@@ -35,7 +35,7 @@ public  class DashBoardPanel extends JPanel {
 		//this.add(title);
 
 		this.setBackground(Color.cyan);
-		this.setLocation(0, 500);
+		this.setLocation(0, 470);
 		this.setSize(700, 200);
 		this.setVisible(true);
 		

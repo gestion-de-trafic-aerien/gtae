@@ -25,7 +25,7 @@ public class Radar extends JPanel implements Runnable {
 		this.data=data;
 		this.setBackground(Color.black);
 		this.setLocation(0, 0);
-		this.setSize(700, 500);
+		this.setSize(1200, 470);
 		this.setVisible(true);
 	}
 	
@@ -51,6 +51,9 @@ public class Radar extends JPanel implements Runnable {
 					g2.setColor(Color.ORANGE);
 				}if(plane.getStatuts().equals(FlightStatus.EMERGENCY_LANDING)) {
 					g2.setColor(Color.red);
+				}
+				if(plane.getStatuts().equals(FlightStatus.CHANGING_ALTITUDE)) {
+					g2.setColor(Color.ORANGE);
 				}
 				g2.drawString(plane.getFlight().getFlightID(), plane.getPosition().getX(), plane.getPosition().getY());
 				g2.fillOval(plane.getPosition().getX(),plane.getPosition().getY(), 10, 10);

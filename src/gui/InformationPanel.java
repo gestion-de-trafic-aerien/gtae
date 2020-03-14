@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-@SuppressWarnings("serial")
 public class InformationPanel extends JPanel {
 	private JLabel airportLabel;
 	private JTextField ALG;
@@ -111,7 +110,7 @@ public class InformationPanel extends JPanel {
 	}
 	public void setPanelCaracteristics(){
 		this.setBackground(Color.GREEN);
-		this.setLocation(700, 0);
+		this.setLocation(700, 470);
 		this.setSize(500,200);
 		this.setVisible(true);
 		GridLayout gl=new GridLayout(7, 2);

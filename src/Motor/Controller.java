@@ -6,7 +6,7 @@ import data.Trajectory;
 import dataEnum.FlightStatus;
 import dataEnum.RunwayID;
 import dataEnum.Status;
-public class Controller implements Runnable {
+public class Controller {
 	
 	private ControllerDataInterface data;
 	public Controller(ControllerDataInterface data) {
@@ -61,10 +61,7 @@ public class Controller implements Runnable {
 	}
 
 	
-	public void run() {
-		//TODO: check the positions every second and prevent a collision
-		
-	}
+
 
 	
 

@@ -1,29 +1,23 @@
 package dataEnum;
 
-import java.util.ArrayList;
-
 import data.Position;
 
 public class Plan {
-	private ArrayList<Position> plan;
-
+	private Position[][] plan;
 	public Plan() {
-		super();
-		this.plan =new ArrayList<Position>();
-		for(int i=0;i<700;i++) {
-			for(int j=0;j<500;j++) {
-				plan.add(new Position(i, j));
-			}
-		}
+		setPlan();
 	}
-	public Position getPos(int x, int y) {
-		Position pos =null;
-		for(Position pos1 : plan) {
-			if (pos1.getX()==x && pos1.getY()==y) {
-				 pos=pos1;
+	public Position getPosition(int x, int y) {
+		return plan[x][y];
+	}
+	private void setPlan() {
+		plan = new Position[1200][450];
+		for(int i=0;i<1200;i++) {
+			for(int j=0;j<450;j++) {
+				plan[i][j]=new Position(i,j);
 			}
 		}
-		return pos;
+
 	}
 	
 }

@@ -14,20 +14,19 @@ import dataEnum.AirportID;
 import dataEnum.RunwayID;
 
 
-public class GlobaleData implements ControllerDataInterface {
+public class GlobaleData implements ControllerDataInterface{
 	private ArrayList<Plane> waitingPlanes;
 	private ArrayList<Airport> airports;
 
 	public GlobaleData() {
 		this.waitingPlanes = new ArrayList<>();
 		this.airports=new ArrayList<>();
+
 		GenerateAirports();
-		GenerateFlights();
+		GenerateFlights();	
 	}
 
-	
-
-	private void GenerateAirports() {
+		private void GenerateAirports() {
 		ArrayList<Runway> runways1=new ArrayList<>();
 		ArrayList<Runway> runways2=new ArrayList<>();
 		ArrayList<Runway> runways3=new ArrayList<>();
@@ -84,12 +83,6 @@ public class GlobaleData implements ControllerDataInterface {
 	public void deleteWaitingPlane(Plane plane) {
 		waitingPlanes.remove(plane);
 	}
-		
-	/*
-	 * This method below generates randomly flights during a whole day (24h)
-	 * insured by a specific type of airplanes: Airbus.
-	 */
-	@SuppressWarnings("deprecation")
 	public void GenerateFlights() {
 		Airport source=null;
 		Airport destination=null;
@@ -110,15 +103,15 @@ public class GlobaleData implements ControllerDataInterface {
 				}
 				
 			}
-			
-			
+	
 		}
 	}
 
-	@Override
 	public String toString() {
 		return "GlobaleData [waitingPlanes=" + waitingPlanes + ", airports=" + airports + "]";
 	}
+
+
 	
 	
 	

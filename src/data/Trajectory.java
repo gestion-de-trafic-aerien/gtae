@@ -67,10 +67,10 @@ public class Trajectory {
 		yA = this.source.getY();		
 		xB = this.destination.getX();
 		yB = this.destination.getY();
-		for(int i=0;i<distance;i+=2) {
+		for(int i=0;i<distance;i++) {
 			x=(int) (xA+(xB-xA)*(i/distance));
 			y=(int) (yA+(yB-yA)*(i/distance));
-			points.add(Main.plan.getPos(x, y));
+			points.add(Main.plan.getPosition(x, y));
 			
 		}
 		

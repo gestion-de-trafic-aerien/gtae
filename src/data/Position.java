@@ -9,7 +9,13 @@ public class Position {
 	private int x;
 	private int y;
 	private boolean occupied;
-
+	
+	public Position(int x,int y) {
+		occupied=false;
+		this.x=x;
+		this.y =y;
+	}
+	
 	public boolean isOccupied() {
 		return occupied;
 	}
@@ -36,14 +42,6 @@ public class Position {
 	public void setOccupied(boolean occupied) {
 		this.occupied = occupied;
 	}
-
-
-	public Position(int x,int y) {
-		// TODO Auto-generated constructor stub
-		this.x=x;
-		this.y =y;
-	}
-
 	
 	public int getX() {
 		// TODO Auto-generated method stub

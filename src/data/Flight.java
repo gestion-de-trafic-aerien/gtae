@@ -44,6 +44,7 @@ public class Flight {
 	}
 
 	public ArrayList <Position> getTrajectoryList() {
+		//System.out.println(trajectory.getTrajectory());
 		return trajectory.getTrajectory();
 	}
 
